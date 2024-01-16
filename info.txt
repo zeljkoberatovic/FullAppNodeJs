@@ -1,0 +1,7 @@
+npm i express ejs,-
+npm i express-session, -login sistem
+npm i nodemon --save-dev,
+package.json{
+    node server.js -default -> nodemon server.js
+}
+npm start - za pokretanje servera koristimo
