@@ -1,11 +1,11 @@
 const mysql = require('mysql2');
 const db = require('../../config/db_connection');
 
-const createGrad = (req, res) => {
+const createProizvod = (req, res) => {
     let name = req.body.name;
-    let zip = req.body.zip;
+    let price = req.body.price;
 db.query(
-        'INSERT INTO sity (name, zip) VALUES (?, ?)',[name, zip],
+        'INSERT INTO product (name, price) VALUES (?, ?)',[name, price],
         (err, results) => {
             if (err) {
                 // obradi grešku, na primer, prikaži stranicu sa greškom
@@ -18,4 +18,4 @@ db.query(
     );
 };
 
-module.exports = createGrad;
+module.exports = createProizvod;
