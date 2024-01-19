@@ -1,13 +1,7 @@
 const mysql = require('mysql2');
-const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "full_app_nodejs"
-});
+const db = require('../config/db_connection');
 
 const loginController = (req, res) => {
-  // Preuzimanje podataka iz req.body
   let nameIzForme = req.body.name;
   let passIzForme = req.body.password;
 // Izvršavanje SQL upita za pretragu korisnika
@@ -16,13 +10,12 @@ const loginController = (req, res) => {
       console.error('Greška prilikom izvršavanja upita:', err);
       res.redirect("/");
     } else {
-      if (results.length === 1) {
-        // Pronađen korisnik
-        let user = results[0];
-        //req.session.user = user;
+        if (results.length === 1) {
+          // Pronađen korisnik
+          let user = results[0];
         if (user.role === "admin") {
           res.redirect("/admin");
-        } else {
+      } else {
           res.redirect("/");
         }
       } else {
