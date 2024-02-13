@@ -4,8 +4,9 @@ const db = require('../../config/db_connection');
 const createProizvod = (req, res) => {
     let name = req.body.name;
     let price = req.body.price;
+      //console.log(name , price);
 db.query(
-        'INSERT INTO product (name, price) VALUES (?, ?)',[name, price],
+        'INSERT INTO product (name, price) VALUES ( ?,?)',[name, price],
         (err, results) => {
             if (err) {
                 // obradi grešku, na primer, prikaži stranicu sa greškom
