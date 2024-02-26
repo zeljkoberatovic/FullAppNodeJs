@@ -370,71 +370,7 @@
                   href="/admin" aria-expanded="false" ><i class="mdi mdi-view-dashboard"></i ><span class="hide-menu"> Dashboard</a>
               </li>
               
-              <li class="sidebar-item">
-                <a
-                  class="sidebar-link has-arrow waves-effect waves-dark"
-                  href="javascript:void(0)"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-receipt"></i
-                  ><span class="hide-menu">Forms </span></a
-                >
-                <ul aria-expanded="false" class="collapse first-level">
-                  <li class="sidebar-item">
-                    <a href="form-basic.html" class="sidebar-link"
-                      ><i class="mdi mdi-note-outline"></i
-                      ><span class="hide-menu"> Form Basic </span></a
-                    >
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="form-wizard.html" class="sidebar-link"
-                      ><i class="mdi mdi-note-plus"></i
-                      ><span class="hide-menu"> Form Wizard </span></a
-                    >
-                  </li>
-                </ul>
-              </li>
               
-              <li class="sidebar-item">
-                <a
-                  class="sidebar-link has-arrow waves-effect waves-dark"
-                  href="javascript:void(0)"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-move-resize-variant"></i
-                  ><span class="hide-menu">Addons </span></a
-                >
-                <ul aria-expanded="false" class="collapse first-level">
-                  <li class="sidebar-item">
-                    <a href="index2.html" class="sidebar-link"
-                      ><i class="mdi mdi-view-dashboard"></i
-                      ><span class="hide-menu"> Dashboard-2 </span></a
-                    >
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="pages-gallery.html" class="sidebar-link"
-                      ><i class="mdi mdi-multiplication-box"></i
-                      ><span class="hide-menu"> Gallery </span></a
-                    >
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="pages-calendar.html" class="sidebar-link"
-                      ><i class="mdi mdi-calendar-check"></i
-                      ><span class="hide-menu"> Calendar </span></a
-                    >
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="pages-invoice.html" class="sidebar-link"
-                      ><i class="mdi mdi-bulletin-board"></i
-                      ><span class="hide-menu"> Invoice </span></a
-                    >
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="pages-chat.html" class="sidebar-link"
-                      ><i class="mdi mdi-message-outline"></i
-                      ><span class="hide-menu"> Chat Option </span></a
-                    >
-                  </li>
-                </ul>
-              </li>
               <li class="sidebar-item">
                 <a
                   class="sidebar-link has-arrow waves-effect waves-dark"
@@ -458,42 +394,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="sidebar-item">
-                <a
-                  class="sidebar-link has-arrow waves-effect waves-dark"
-                  href="javascript:void(0)"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-alert"></i
-                  ><span class="hide-menu">Errors </span></a
-                >
-                <ul aria-expanded="false" class="collapse first-level">
-                  <li class="sidebar-item">
-                    <a href="error-403.html" class="sidebar-link"
-                      ><i class="mdi mdi-alert-octagon"></i
-                      ><span class="hide-menu"> Error 403 </span></a
-                    >
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="error-404.html" class="sidebar-link"
-                      ><i class="mdi mdi-alert-octagon"></i
-                      ><span class="hide-menu"> Error 404 </span></a
-                    >
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="error-405.html" class="sidebar-link"
-                      ><i class="mdi mdi-alert-octagon"></i
-                      ><span class="hide-menu"> Error 405 </span></a
-                    >
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="error-500.html" class="sidebar-link"
-                      ><i class="mdi mdi-alert-octagon"></i
-                      ><span class="hide-menu"> Error 500 </span></a
-                    >
-                  </li>
-                </ul>
-              </li>
-              
+                           
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
@@ -603,7 +504,7 @@
           <!-- Recent comment and chats -->
           <!-- ============================================================== -->
           <div class="row">
-            <div class="col-lg-12 ">
+            <div class="col-lg-5 ">
               <div class="card">
                       <div class="card-body">
                           <h4 class="card-title">Operateri</h4>
@@ -614,41 +515,35 @@
                   <div class="d-flex flex-row comment-row mt-0">
                     <div class="comment-text w-100">
                       <h6 class="font-medium"><%= operateri[i].first_name + " " + operateri[i].last_name %></h6>
-                      <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and
-                        type setting industry.
-                      </span>
-                      <div class="comment-footer">
-                        <span class="text-muted float-end">April 14, 2021</span><button type="button"
-                                                class="btn btn-cyan btn-sm text-white">Edit</button>
-                        <button type="button"class="btn btn-success btn-sm text-white">Publis</button>
-                        <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
-                      </div>
-                    </div>
-                  </div>
-                  <% } %>
+                          <div class="comment-footer">
+                            <span class="text-muted float-end">April 14, 2021</span><button type="button"
+                                                    class="btn btn-cyan btn-sm text-white">Edit</button>
+                            <button type="button"class="btn btn-success btn-sm text-white">Publis</button>
+                            <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
+                          </div>
+                       </div>
+                     </div>
+                   <% } %>
                 </div>
               </div>
             </div>
           </div>
 
 
-                  <!-- Comment Row -->
-                  <div class="row">
+                 
+                <div class="row">
                     <!-- column -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                       <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">SAVJETNICI</h4>
-                        </div>
-                      <div class="comment-widgets scrollable">
+                            <div class="card-body">
+                              <h4 class="card-title">Savjetnici</h4>
+                            </div>
+                        <div class="comment-widgets scrollable">
                            <!-- Comment Row -->
                           <% for(let j = 0; j < savetnici.length; j++) { %>
-                          <div class="d-flex flex-row comment-row mt-0">
-                            <div class="comment-text w-100">
-                              <h6 class="font-medium"> <%= savetnici[j].first_name + " " + savetnici[j].last_name  %> </h6>
-                              <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and
-                                type setting industry.
-                              </span>
+                            <div class="d-flex flex-row comment-row mt-0">
+                              <div class="comment-text w-100">
+                                <h6 class="font-medium"> <%= savetnici[j].first_name + " " + savetnici[j].last_name  %> </h6>
                               <div class="comment-footer">
                                 <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                         class="btn btn-cyan btn-sm text-white">Edit</button>
@@ -659,76 +554,72 @@
                           </div>
                           <% } %>
                       </div>
-                        </div>
-                </div>
                     </div>
-                  </div>
+                 </div>
+              </div>
+
 
               
             <div class="row">
                 <!-- column -->
-                <div class="col-lg-6">
-                  <div class="card">
-                      <div class="card-body">
-                        <h4 class="card-title">Savjetnici</h4>
+                    <div class="col-lg-5">
+                      <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Proizvodi</h4>
+                          </div>
+                        <div class="comment-widgets scrollable">
+                            <!-- Comment Row -->
+                            <% for(let i = 0; i < proizvodi.length; i++) { %>
+                              <div class="d-flex flex-row comment-row mt-0">
+                                <div class="comment-text w-100">
+                                  <h6 class="font-medium"><%= proizvodi[i].name%></h6>
+                                  <div class="comment-footer">
+                                  <span class="text-muted float-end">April 14, 2021</span><button type="button"
+                                                            class="btn btn-cyan btn-sm text-white">Edit</button>
+                                    <button type="button"class="btn btn-success btn-sm text-white">Publis</button>
+                                    <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
+                                  </div>
+                              </div>
+                            </div>
+                            <% } %>
                       </div>
-                    <div class="comment-widgets scrollable">
-                  <!-- Comment Row -->
-                  <% for(let i = 0; i < savetnici.length; i++) { %>
-                    <div class="d-flex flex-row comment-row mt-0">
-                      <div class="comment-text w-100">
-                        <h6 class="font-medium"><%= savetnici[i].first_name + " " + savetnici[i].last_name %></h6>
-                        <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and
-                          type setting industry.
-                        </span>
-                        <div class="comment-footer">
-                          <span class="text-muted float-end">April 14, 2021</span><button type="button"
-                                                  class="btn btn-cyan btn-sm text-white">Edit</button>
-                          <button type="button"class="btn btn-success btn-sm text-white">Publis</button>
-                          <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
-                        </div>
-                    </div>
-                  </div>
-                  <% } %>
+                   </div>
                 </div>
               </div>
-            </div>
-           </div>
-          
-            <!-- card -->
-            <div class="row">
-              <!-- column -->
-              <div class="col-lg-6">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Gradovi</h4>
-                </div>
-            </div>
-              
-                  <!-- Comment Row -->
-                  <div class="d-flex flex-row comment-row mt-0">
-                    <div class="p-2">
-                      <img
-                        src="../assets/images/users/1.jpg"
-                        alt="user"
-                        width="50"
-                        class="rounded-circle"/>
-                    </div>
-                    <div class="comment-text w-100">
-                      <h6 class="font-medium">James Anderson</h6>
-                      <span class="mb-3 d-block"
-                        >Lorem Ipsum is simply dummy text of the printing and
-                        type setting industry.
-                      </span>
-                      <div class="comment-footer">
-                        <span class="text-muted float-end">April 14, 2021</span><button type="button"
-                        class="btn btn-cyan btn-sm text-white" > Edit</button>
-                        <button type="button" class="btn btn-success btn-sm text-white">Publish</button>
-                        <button  type="button" class="btn btn-danger btn-sm text-white">Delete </button>
+
+
+
+              <div class="row">
+                <!-- column -->
+                    <div class="col-lg-5">
+                      <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Gradovi</h4>
+                          </div>
+                        <div class="comment-widgets scrollable">
+                            <!-- Comment Row -->
+                            <% for(let i = 0; i < gradovi.length; i++) { %>
+                              <div class="d-flex flex-row comment-row mt-0">
+                                <div class="comment-text w-100">
+                                  <h6 class="font-medium"><%= gradovi[i].name + " " + gradovi[i].zip %></h6>
+                                <div class="comment-footer">
+                                  <span class="text-muted float-end">April 14, 2021</span><button type="button"
+                                                            class="btn btn-cyan btn-sm text-white">Edit</button>
+                                    <button type="button"class="btn btn-success btn-sm text-white">Publis</button>
+                                    <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
+                                  </div>
+                              </div>
+                            </div>
+                            <% } %>
                       </div>
-                    </div>
-                  </div><!-- Recent comment and chats -->
-           </div> <!-- End Container fluid  -->
+                   </div>
+                </div>
+              </div> 
+
+
+          
+            <!-- Recent comment and chats -->
+            <!-- End Container fluid  -->
   
            <!-- ============================================================== -->
        
