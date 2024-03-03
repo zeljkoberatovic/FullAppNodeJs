@@ -2,11 +2,11 @@ const mysql = require('mysql2');
 const db = require('../../config/db_connection');
 
 const deleteUserController = (req, res) => {  
-    const userId = req.params.userId; 
+    const user = req.params.user; 
 
     const connection = mysql.createConnection(db);
 
-  connection.query('DELETE FROM users WHERE id = ?', [userId], (err, results) => {
+  connection.query('DELETE FROM users WHERE id = ?', [user], (err, results) => {
         connection.end();  // Zatvorite vezu nakon izvršenja upita
 
         

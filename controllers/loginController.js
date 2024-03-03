@@ -12,9 +12,11 @@ const loginController = (req, res) => {
     } else {
         if (results.length === 1) {
           // Pronađen korisnik
-          let user = results[0];
+        let user = results[0];
+        console.log(user);
         if (user.role === "admin") {
           res.redirect("/admin");
+
       } else if(user.role === "operater") {
           res.redirect("/operater");
       }else {

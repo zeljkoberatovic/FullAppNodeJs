@@ -14,7 +14,7 @@
       content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
     />
     <meta name="robots" content="noindex,nofollow" />
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <title></title>
     <!-- Favicon icon -->
     <link
       rel="icon"
@@ -391,7 +391,7 @@
                   href="charts.html"
                   aria-expanded="false"
                   ><i class="mdi mdi-chart-bar"></i
-                  ><span class="hide-menu">Termini</span></a
+                  ><span class="hide-menu">Termini <span><%= brojTermina %></span> </span></a
                 >
               </li>
               
@@ -417,7 +417,7 @@
             <div class="col-12 d-flex no-block align-items-center">
               <h4 class="page-title">Novi Termin</h4>
               <div class="ms-auto text-end">
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </div>
           </div>
@@ -549,7 +549,8 @@
                             type="text"
                             class="form-control date-inputmask"
                             id="date-mask"
-                            placeholder="Datum termina" name="datum_zakazivanja"/>
+                            placeholder="Datum termina"
+                            name="datum_zakazivanja"/>
                       </div>
 
                       <div class="form-group mt-3">
@@ -565,7 +566,7 @@
                         <label class="col-md-3 m-t-15">Savetnik</label>
                         <div class="col-md-9">
                             <select name="savetnik" class="form-control">
-                                <option value="">Igor</option>
+                                <option value="Igor">Igor</option>
                             </select>
                         </div>
                       </div>
@@ -574,7 +575,7 @@
                         <label class="col-md-3 m-t-15">Mjesto rada</label>
                         <div class="col-md-9">
                             <select name="grad" class="form-control">
-                                <option value="">Podgorica</option>
+                                <option value="Podgorica">Podgorica</option>
                             </select>
                         </div>
                       </div>
@@ -696,6 +697,7 @@
       var quill = new Quill("#editor", {
         theme: "snow",
       });
-    </script>
+  </script>
+      
   </body>
 </html>
