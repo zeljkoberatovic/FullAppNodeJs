@@ -10,7 +10,7 @@
     <meta name="description"
       content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"/>
     <meta name="robots" content="noindex,nofollow" />
-    <title><%= name %></title>
+    <title><%=name%></title>
     <!-- Favicon icon -->
     <link
         rel="icon"
@@ -21,6 +21,10 @@
     <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="../dist/css/style.min.css" rel="stylesheet" />
+
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    
+
   </head>
 <body>
     <!-- ============================================================== -->
@@ -514,12 +518,15 @@
                   <% for(let i =0; i < operateri.length; i++) { %>
                   <div class="d-flex flex-row comment-row mt-0">
                     <div class="comment-text w-100">
-                      <h6 class="font-medium"><%= operateri[i].first_name + " " + operateri[i].last_name %></h6>
+                      <h6 class="font-medium">
+                        <%= operateri[i].first_name + " " + operateri[i].id %> </h6>
+
                           <div class="comment-footer">
                             <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                     class="btn btn-cyan btn-sm text-white">Edit</button>
-                            <button type="button"class="btn btn-success btn-sm text-white">Publis</button>
-                            <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
+                            <button type="button" class="btn btn-success btn-sm text-white">Publish</button>
+                            <button type="button" class="btn btn-danger btn-sm text-white delete-user-btn"
+                                    data-id=<%= operateri[i].id  %> Delete</button>
                           </div>
                        </div>
                      </div>
@@ -547,7 +554,7 @@
                               <div class="comment-footer">
                                 <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                         class="btn btn-cyan btn-sm text-white">Edit</button>
-                                <button type="button"class="btn btn-success btn-sm text-white">Publis</button>
+                                <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
                                 <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
                               </div>
                             </div>
@@ -576,8 +583,9 @@
                                   <div class="comment-footer">
                                   <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                             class="btn btn-cyan btn-sm text-white">Edit</button>
-                                    <button type="button"class="btn btn-success btn-sm text-white">Publis</button>
-                                    <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
+                                    <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
+                                    <button type="button"class="btn btn-danger btn-sm text-white 
+                                    delete-proizvod-btn" data-id="<%= proizvodi[i].id %>" > Delete</button>
                                   </div>
                               </div>
                             </div>
@@ -605,7 +613,7 @@
                                 <div class="comment-footer">
                                   <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                             class="btn btn-cyan btn-sm text-white">Edit</button>
-                                    <button type="button"class="btn btn-success btn-sm text-white">Publis</button>
+                                    <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
                                     <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
                                   </div>
                               </div>
@@ -628,8 +636,8 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-              All Rights Reserved by Matrix-admin. Designed and Developed by
-              <a href="https://www.wrappixel.com">WrapPixel</a>.
+              All Rights Reserved by Zeljko Beratovic. Designed and Developed by
+              <a href="https://www.wrappixel.com">zeljkoberatovic.com</a>.
             </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
@@ -638,7 +646,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
@@ -660,5 +668,127 @@
     <script src="../assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="../dist/js/pages/chart/chart-page-init.js"></script>
+    
+
+
+    <script>
+     let btn_delete = document.querySelectorAll(".delete-user-btn");  
+      let i;
+
+      for(i=0; i < btn_delete.length; i++) {
+        btn_delete[i].addEventListener("click", function() {
+          id = this.getAttribute("data-id");
+	          
+          async function fetchData() {
+            try {
+              const response = await fetch("/admin/delete/user/" + id);
+              const data = await response.json();
+              console.log(data);
+           
+            } catch(error) {
+              console.error("Greska: ", error);
+            }
+
+          }
+
+          fetchData();
+         
+
+
+        });
+      }
+
+/*
+      $(document).ready(function() {
+      $(".delete-user-btn").on('click', function () {
+        let id = $(this).attr('data-id');   
+   
+        
+        let potvrda = confirm("Da li ste sigurni ?");
+
+        if(potvrda) {
+          
+          async function fetchData() {
+            try {
+              const response = await fetch("/admin/delete/user/" + id);
+              const data await response.json();
+              console.log(data);
+            }
+
+          }
+          
+         
+         /* $.ajax({   
+            url: "/admin/delete/user/" + id
+    
+          });
+          */
+          /*.done(function(){
+            if(res == "Ok"){
+              window.location.href = "/admin";
+            }
+          });
+*/
+        
+          
+          /*.then(res => {
+            if(res == "Ok"){
+              window.location.href = "/admin";
+            }
+          })*/
+/*        }
+      })
+
+    });
+
+    */
+   
+    </script>
+    <!--<script>
+
+      $(".delete-proizvod-btn").on('click', function () {
+        let id = $(this).attr('data-id');
+        console.log(id);
+        let potvrda = confirm("Da li ste sigurni ?");
+        if(potvrda){
+          $.ajax({
+            url: `/admin/delete/proizvod/${id}` 
+          })
+          .then(res => {
+            if(res == "Ok"){
+              window.location.href = "/admin";
+            }
+          })
+        }
+      })
+    </script>-->
+    <script>
+      $(document).ready(function() {
+        $(".delete-proizvod-btn").on('click', function () {
+          let id = $(this).attr('data-id');
+          console.log("ID:", id);
+    
+          let potvrda = confirm("Da li ste sigurni?");
+          if (potvrda) {
+            jQuery.ajax({
+              url: `/admin/delete/proizvod/${id}`,
+              method: 'GET', 
+              dataType: 'json', 
+            })
+            .done(function(res) {
+              console.log("Uspešan odgovor:", res);
+              if (res === "Ok") {
+                window.location.href = "/admin";
+              }
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+              console.log("Neuspešan zahtev:", textStatus, errorThrown);
+            });
+          }
+        });
+      });
+    </script>
+    
+
   </body>
 </html>

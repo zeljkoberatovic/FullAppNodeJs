@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 const db = require('../../config/db_connection');
 
 const adminController = (req, res) => {
-    //let user = req.session.user;
+    let user = req.session.user;
     db.query('SELECT * FROM users', (err, users) => {
         db.query('SELECT * FROM sity', (err, sity) => {
             db.query('SELECT * FROM product', (err, product) => {
