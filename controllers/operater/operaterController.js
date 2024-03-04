@@ -5,8 +5,9 @@ const operaterController = async (req, res) => {
     try {
         // Provera podataka o korisniku iz sesije
         let user = req.session.user;
-
-        if (!user || !user.first_name) {
+        console.log(user);
+        
+    if (!user || !user.first_name) {
             console.error('Podaci o korisniku nisu ispravni ili nisu postavljeni.');
             res.status(500).send('Došlo je do greške prilikom dohvatanja podataka o korisniku.');
             return;

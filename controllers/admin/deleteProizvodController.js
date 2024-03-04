@@ -1,7 +1,8 @@
 const mysql = require('mysql2');
 const db = require('../../config/db_connection');
 
-const deleteProizvodController = (req, res) => {  
+const deleteProizvodController = (req, res) => { 
+   
     const proizvodId = req.params.proizvodId; 
 
     const connection = mysql.createConnection(db);

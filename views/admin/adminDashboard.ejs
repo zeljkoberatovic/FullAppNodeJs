@@ -10,7 +10,7 @@
     <meta name="description"
       content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"/>
     <meta name="robots" content="noindex,nofollow" />
-    <title><%=name%></title>
+    <title></title>
     <!-- Favicon icon -->
     <link
         rel="icon"
@@ -373,38 +373,13 @@
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="/admin" aria-expanded="false" ><i class="mdi mdi-view-dashboard"></i ><span class="hide-menu"> Dashboard</a>
               </li>
-              
-              
-              <li class="sidebar-item">
-                <a
-                  class="sidebar-link has-arrow waves-effect waves-dark"
-                  href="javascript:void(0)"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-account-key"></i
-                  ><span class="hide-menu">Authentication </span></a
-                >
-                <ul aria-expanded="false" class="collapse first-level">
-                  <li class="sidebar-item">
-                    <a href="authentication-login.html" class="sidebar-link"
-                      ><i class="mdi mdi-all-inclusive"></i
-                      ><span class="hide-menu"> Login </span></a
-                    >
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="authentication-register.html" class="sidebar-link"
-                      ><i class="mdi mdi-all-inclusive"></i
-                      ><span class="hide-menu"> Register </span></a
-                    >
-                  </li>
-                </ul>
-              </li>
-                           
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
         </div>
         <!-- End Sidebar scroll-->
       </aside>
+   
       <!-- ============================================================== -->
       <!-- End Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
@@ -440,7 +415,7 @@
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- ============================================================== -->
-        <div class="container-fluid">
+      <div class="container-fluid">
           <!-- ============================================================== -->
           <!-- Sales Cards  -->
           <!-- ============================================================== -->
@@ -502,127 +477,128 @@
             </div>
             <!-- Column -->
             
-         
+        
 
-          <!-- ============================================================== -->
-          <!-- Recent comment and chats -->
-          <!-- ============================================================== -->
-          <div class="row">
-            <div class="col-lg-5 ">
-              <div class="card">
-                      <div class="card-body">
-                          <h4 class="card-title">Operateri</h4>
+            <!-- ============================================================== -->
+            <!-- Recent comment and chats -->
+            <!-- ============================================================== -->
+              <div class="row">
+                <div class="col-lg-6 ">
+                  <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Operateri</h4>
+                        </div>
+                  <div class="comment-widgets scrollable">
+                    <!-- Comment Row -->
+                    <% for(let i =0; i < operateri.length; i++) { %>
+                    <div class="d-flex flex-row comment-row mt-0">
+                      <div class="comment-text w-100">
+                        <h6 class="font-medium">
+                          <%= operateri[i].first_name + " " + operateri[i].id %> </h6>
+
+                            <div class="comment-footer">
+                              <span class="text-muted float-end">April 14, 2021</span><button type="button"
+                                                      class="btn btn-cyan btn-sm text-white">Edit</button>
+                              <button type="button" class="btn btn-success btn-sm text-white">Publish</button>
+                              <button type="button" class="btn btn-danger btn-sm text-white delete-user-btn"
+                                      data-id=<%= operateri[i].id %> Delete</button>
+                            </div>
+                        </div>
                       </div>
-                <div class="comment-widgets scrollable">
-                  <!-- Comment Row -->
-                  <% for(let i =0; i < operateri.length; i++) { %>
-                  <div class="d-flex flex-row comment-row mt-0">
-                    <div class="comment-text w-100">
-                      <h6 class="font-medium">
-                        <%= operateri[i].first_name + " " + operateri[i].id %> </h6>
-
-                          <div class="comment-footer">
-                            <span class="text-muted float-end">April 14, 2021</span><button type="button"
-                                                    class="btn btn-cyan btn-sm text-white">Edit</button>
-                            <button type="button" class="btn btn-success btn-sm text-white">Publish</button>
-                            <button type="button" class="btn btn-danger btn-sm text-white delete-user-btn"
-                                    data-id=<%= operateri[i].id  %> Delete</button>
-                          </div>
-                       </div>
-                     </div>
-                   <% } %>
+                    <% } %>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
 
 
                  
-                <div class="row">
-                    <!-- column -->
-                    <div class="col-lg-5">
-                      <div class="card">
-                            <div class="card-body">
-                              <h4 class="card-title">Savjetnici</h4>
-                            </div>
-                        <div class="comment-widgets scrollable">
-                           <!-- Comment Row -->
-                          <% for(let j = 0; j < savetnici.length; j++) { %>
-                            <div class="d-flex flex-row comment-row mt-0">
-                              <div class="comment-text w-100">
-                                <h6 class="font-medium"> <%= savetnici[j].first_name + " " + savetnici[j].last_name  %> </h6>
-                              <div class="comment-footer">
-                                <span class="text-muted float-end">April 14, 2021</span><button type="button"
-                                                        class="btn btn-cyan btn-sm text-white">Edit</button>
-                                <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
-                                <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
-                              </div>
-                            </div>
-                          </div>
-                          <% } %>
-                      </div>
-                    </div>
-                 </div>
-              </div>
-
-
-              
-            <div class="row">
-                <!-- column -->
-                    <div class="col-lg-5">
-                      <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Proizvodi</h4>
-                          </div>
-                        <div class="comment-widgets scrollable">
-                            <!-- Comment Row -->
-                            <% for(let i = 0; i < proizvodi.length; i++) { %>
-                              <div class="d-flex flex-row comment-row mt-0">
-                                <div class="comment-text w-100">
-                                  <h6 class="font-medium"><%= proizvodi[i].name%></h6>
+                   <div class="row">
+                        <!-- column -->
+                        <div class="col-lg-6">
+                          <div class="card">
+                                <div class="card-body">
+                                  <h4 class="card-title">Savjetnici</h4>
+                                </div>
+                            <div class="comment-widgets scrollable">
+                              <!-- Comment Row -->
+                              <% for(let i = 0; i < savetnici.length; i++) { %>
+                                <div class="d-flex flex-row comment-row mt-0">
+                                  <div class="comment-text w-100">
+                                    <h6 class="font-medium"> <%= savetnici[i].first_name + " " + savetnici[i].last_name  %> </h6>
                                   <div class="comment-footer">
-                                  <span class="text-muted float-end">April 14, 2021</span><button type="button"
-                                                            class="btn btn-cyan btn-sm text-white">Edit</button>
-                                    <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
-                                    <button type="button"class="btn btn-danger btn-sm text-white 
-                                    delete-proizvod-btn" data-id="<%= proizvodi[i].id %>" > Delete</button>
-                                  </div>
-                              </div>
-                            </div>
-                            <% } %>
-                      </div>
-                   </div>
-                </div>
-              </div>
-
-
-
-              <div class="row">
-                <!-- column -->
-                    <div class="col-lg-5">
-                      <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Gradovi</h4>
-                          </div>
-                        <div class="comment-widgets scrollable">
-                            <!-- Comment Row -->
-                            <% for(let i = 0; i < gradovi.length; i++) { %>
-                              <div class="d-flex flex-row comment-row mt-0">
-                                <div class="comment-text w-100">
-                                  <h6 class="font-medium"><%= gradovi[i].name + " " + gradovi[i].zip %></h6>
-                                <div class="comment-footer">
-                                  <span class="text-muted float-end">April 14, 2021</span><button type="button"
+                                    <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                             class="btn btn-cyan btn-sm text-white">Edit</button>
                                     <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
                                     <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
                                   </div>
+                                </div>
                               </div>
-                            </div>
-                            <% } %>
+                              <% } %>
+                          </div>
+                        </div>
+                    </div>
+                  </div> 
+                  
+
+
+              
+                  <div class="row">
+                    <!-- column -->
+                        <div class="col-lg-6">
+                          <div class="card">
+                              <div class="card-body">
+                                <h4 class="card-title">Proizvodi</h4>
+                              </div>
+                            <div class="comment-widgets scrollable">
+                                <!-- Comment Row -->
+                                <% for(let i = 0; i < proizvodi.length; i++) { %>
+                                  <div class="d-flex flex-row comment-row mt-0">
+                                    <div class="comment-text w-100">
+                                      <h6 class="font-medium"><%= proizvodi[i].name%></h6>
+                                      <div class="comment-footer">
+                                      <span class="text-muted float-end">April 14, 2021</span><button type="button"
+                                                                class="btn btn-cyan btn-sm text-white">Edit</button>
+                                        <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
+                                        <button type="button"class="btn btn-danger btn-sm text-white 
+                                        delete-proizvod-btn" data-id="<%= proizvodi[i].id %>" > Delete</button>
+                                      </div>
+                                  </div>
+                                </div>
+                                <% } %>
+                          </div>
                       </div>
-                   </div>
-                </div>
-              </div> 
+                    </div>
+                  </div>
+
+
+
+                  <div class="row">
+                    <!-- column -->
+                        <div class="col-lg-6">
+                          <div class="card">
+                              <div class="card-body">
+                                <h4 class="card-title">Gradovi</h4>
+                              </div>
+                            <div class="comment-widgets scrollable">
+                                <!-- Comment Row -->
+                                <% for(let i = 0; i < gradovi.length; i++) { %>
+                                  <div class="d-flex flex-row comment-row mt-0">
+                                    <div class="comment-text w-100">
+                                      <h6 class="font-medium"><%= gradovi[i].name + " " + gradovi[i].zip %></h6>
+                                    <div class="comment-footer">
+                                      <span class="text-muted float-end">April 14, 2021</span><button type="button"
+                                                                class="btn btn-cyan btn-sm text-white">Edit</button>
+                                        <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
+                                        <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
+                                      </div>
+                                  </div>
+                                </div>
+                                <% } %>
+                          </div>
+                      </div>
+                    </div>
+                  </div> 
 
 
           
@@ -637,37 +613,40 @@
             <!-- ============================================================== -->
             <footer class="footer text-center">
               All Rights Reserved by Zeljko Beratovic. Designed and Developed by
-              <a href="https://www.wrappixel.com">zeljkoberatovic.com</a>.
+              
             </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
-      
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
+        </div>
+  </div>
+   
+          <!-- ============================================================== -->
+          <!-- End footer -->
+          <!-- ============================================================== -->
+        
+          <!-- ============================================================== -->
+          <!-- All Jquery -->
+          <!-- ============================================================== -->
     
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
-    <!-- Charts js Files -->
-    <script src="../assets/libs/flot/excanvas.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.pie.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.time.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.stack.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="../dist/js/pages/chart/chart-page-init.js"></script>
+            <!-- Bootstrap tether Core JavaScript -->
+            <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+            <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+            <!--Wave Effects -->
+            <script src="../dist/js/waves.js"></script>
+            <!--Menu sidebar -->
+            <script src="../dist/js/sidebarmenu.js"></script>
+            <!--Custom JavaScript -->
+            <script src="../dist/js/custom.min.js"></script>
+            <!--This page JavaScript -->
+            <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
+            <!-- Charts js Files -->
+            <script src="../assets/libs/flot/excanvas.js"></script>
+            <script src="../assets/libs/flot/jquery.flot.js"></script>
+            <script src="../assets/libs/flot/jquery.flot.pie.js"></script>
+            <script src="../assets/libs/flot/jquery.flot.time.js"></script>
+            <script src="../assets/libs/flot/jquery.flot.stack.js"></script>
+            <script src="../assets/libs/flot/jquery.flot.crosshair.js"></script>
+            <script src="../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+            <script src="../dist/js/pages/chart/chart-page-init.js"></script>
     
 
 
@@ -698,70 +677,70 @@
         });
       }
 
-/*
-      $(document).ready(function() {
-      $(".delete-user-btn").on('click', function () {
-        let id = $(this).attr('data-id');   
-   
+            /*
+            $(document).ready(function() {
+            $(".delete-user-btn").on('click', function () {
+              let id = $(this).attr('data-id');   
         
-        let potvrda = confirm("Da li ste sigurni ?");
+              
+              let potvrda = confirm("Da li ste sigurni ?");
 
-        if(potvrda) {
-          
-          async function fetchData() {
-            try {
-              const response = await fetch("/admin/delete/user/" + id);
-              const data await response.json();
-              console.log(data);
-            }
+              if(potvrda) {
+                
+                async function fetchData() {
+                  try {
+                    const response = await fetch("/admin/delete/user/" + id);
+                    const data await response.json();
+                    console.log(data);
+                  }
 
-          }
+                }
+                
+              
+              /* $.ajax({   
+                  url: "/admin/delete/user/" + id
           
-         
-         /* $.ajax({   
-            url: "/admin/delete/user/" + id
-    
+                });
+                */
+                /*.done(function(){
+                  if(res == "Ok"){
+                    window.location.href = "/admin";
+                  }
+                });
+                  */
+              
+                
+                /*.then(res => {
+                  if(res == "Ok"){
+                    window.location.href = "/admin";
+                  }
+                })*/
+              /*        }
+            })
+
           });
+
           */
-          /*.done(function(){
-            if(res == "Ok"){
-              window.location.href = "/admin";
-            }
-          });
-*/
         
-          
-          /*.then(res => {
-            if(res == "Ok"){
-              window.location.href = "/admin";
-            }
-          })*/
-/*        }
-      })
+          </script>
+          <!--<script>
 
-    });
-
-    */
-   
-    </script>
-    <!--<script>
-
-      $(".delete-proizvod-btn").on('click', function () {
-        let id = $(this).attr('data-id');
-        console.log(id);
-        let potvrda = confirm("Da li ste sigurni ?");
-        if(potvrda){
-          $.ajax({
-            url: `/admin/delete/proizvod/${id}` 
-          })
-          .then(res => {
-            if(res == "Ok"){
-              window.location.href = "/admin";
-            }
-          })
-        }
-      })
-    </script>-->
+            $(".delete-proizvod-btn").on('click', function () {
+              let id = $(this).attr('data-id');
+              console.log(id);
+              let potvrda = confirm("Da li ste sigurni ?");
+              if(potvrda){
+                $.ajax({
+                  url: `/admin/delete/proizvod/${id}` 
+                })
+                .then(res => {
+                  if(res == "Ok"){
+                    window.location.href = "/admin";
+                  }
+                })
+              }
+            })
+          </script>-->
     <script>
       $(document).ready(function() {
         $(".delete-proizvod-btn").on('click', function () {

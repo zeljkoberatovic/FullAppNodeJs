@@ -341,19 +341,16 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="javascript:void(0)"
                     ><i class="mdi mdi-settings me-1 ms-1"></i> Account
-                    Setting</a
-                  >
+                    Setting</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/logout"
-                    ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
-                  >
+                    ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
                   <div class="dropdown-divider"></div>
                   <div class="ps-4 p-10">
                     <a
                       href="javascript:void(0)"
                       class="btn btn-sm btn-success btn-rounded text-white"
-                      >View Profile</a
-                    >
+                      >View Profile</a>
                   </div>
                 </ul>
               </li>
@@ -512,7 +509,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="">Telefon</label>
+                        <label for="">Fiksni Telefon</label>
                         <input type="text" class="form-control" name="fiksni_telefon" placeholder="Fiksni telefon">
                     </div>
 
@@ -565,9 +562,12 @@
                       <div class="form-group row">
                         <label class="col-md-3 m-t-15">Savetnik</label>
                         <div class="col-md-9">
-                            <select name="savetnik" class="form-control">
-                                <option value="Igor">Igor</option>
-                            </select>
+                          <select name="savetnik" class="form-control">
+                            <% for(let i = 0; i < savetnici.length; i++ ) { %>
+                              <option value="<%= savetnici[i].first_name + " " + savetnici[i].last_name %>"> 
+                                <%= savetnici[i].first_name + " " + savetnici[i].last_name %></option>
+                            <% } %>
+                          </select>
                         </div>
                       </div>
 
@@ -575,7 +575,10 @@
                         <label class="col-md-3 m-t-15">Mjesto rada</label>
                         <div class="col-md-9">
                             <select name="grad" class="form-control">
-                                <option value="Podgorica">Podgorica</option>
+                              <% for(let i = 0; i < gradovi.length; i++ ) { %>
+                                <option value="<%= gradovi[i].name %>">
+                                  <%= gradovi[i].name %></option>
+                              <% } %>
                             </select>
                         </div>
                       </div>

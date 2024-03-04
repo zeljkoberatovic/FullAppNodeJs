@@ -3,7 +3,6 @@ const db = require('../../config/db_connection');
 
 const adminController = (req, res) => {
     let user = req.session.user;
-    console.log(user);
 
     db.query('SELECT * FROM users', (err, users) => {
         db.query('SELECT * FROM sity', (err, sity) => {
@@ -16,7 +15,7 @@ const adminController = (req, res) => {
 
 
                 res.render("admin/adminDashboard", {
-                    name: users.first_name,
+                    //name: user.first_name,
                     gradovi: sity,
                     proizvodi: product,
                     operateri: operateri,
