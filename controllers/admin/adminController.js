@@ -15,7 +15,7 @@ const adminController = (req, res) => {
 
 
                 res.render("admin/adminDashboard", {
-                    //name: user.first_name,
+                    name: user.first_name,
                     gradovi: sity,
                     proizvodi: product,
                     operateri: operateri,

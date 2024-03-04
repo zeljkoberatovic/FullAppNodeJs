@@ -5,7 +5,7 @@ const operaterController = async (req, res) => {
     try {
         // Provera podataka o korisniku iz sesije
         let user = req.session.user;
-        console.log(user);
+        //console.log(user);
         
     if (!user || !user.first_name) {
             console.error('Podaci o korisniku nisu ispravni ili nisu postavljeni.');
