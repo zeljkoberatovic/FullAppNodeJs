@@ -4,6 +4,7 @@ const routes = require('./routes');
 const session = require("express-session");
 
 
+
 const HALF_DAY = 1000 * 60 * 60 * 12; //= 12h
 
 const {
@@ -20,6 +21,8 @@ app.use(express.json());
 app.use(express.static( __dirname + "/public"));
 
 
+
+
 app.use(session({
     name: SESS_NAME,
     resave: false,
@@ -31,6 +34,7 @@ app.use(session({
         secure: IN_PROD
     }
 }));
+
 
 
 

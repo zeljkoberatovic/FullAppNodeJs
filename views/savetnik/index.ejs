@@ -418,7 +418,6 @@
         <!-- ============================================================== -->
         <div class="page-breadcrumb">
           <div class="row">
-            <%  %>
             <div class="col-12 d-flex no-block align-items-center">
               <h4 class="page-title">Dashboard</h4>
               <div class="ms-auto text-end">
@@ -443,7 +442,7 @@
           <div class="row">
             <!-- Column -->
 
-            <!-- Ako savetnik nema zakazanih termina za odredjeni dan -->
+         <!-- Ako savetnik nema zakazanih termina za odredjeni dan -->
             <% if(termini.length == 0) {%>
                 <div class="col-md-8 col-lg-4 col-xlg-4">
                     <div class="card card-hover">
@@ -456,18 +455,21 @@
               </div>
             <% } %>
 
+
             <% for(let i = 0; i < termini.length; i++) {%>
-            <div class="col-md-8 col-lg-4 col-xlg-4">
-              <div class="card card-hover">
-                <div class="box bg-cyan text-center">
-                  <h1 class="font-light text-white">
-                    <%= termini[i].ime_stranke+ " " +termini[i].prezime_stranke  %>
-                  </h1>
-                  <h6>Opis Pregleda: <span class="text-white"> <%= termini[i].operacije %></span></h6>
-                  <h6 class="text-white"><%= termini[i].vreme_termina %></h6>
+              <div class="col-md-8 col-lg-4 col-xlg-4">
+                <div class="card card-hover">
+                  <a href="/savetnik/termin/<%= termini[i].id %>">
+                  <div class="box bg-cyan text-center">
+                        <h1 class="font-light text-white">
+                          <%= termini[i].ime_stranke+ " " +termini[i].prezime_stranke  %>
+                        </h1>
+                      <h6>Opis Pregleda: <span class="text-white"> <%= termini[i].operacije %></span></h6>
+                        <h6 class="text-white"><%= termini[i].vreme_termina %></h6>
+                    </div>
+                  </a>
                 </div>
               </div>
-            </div>
             <% } %>
         </div>
           <!-- ============================================================== -->
