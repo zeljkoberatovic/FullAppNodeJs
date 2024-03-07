@@ -30,7 +30,6 @@ const newTerminController = (req, res) => {
         //datum_zakazivanja: 
         mysqlDatum,
         req.body.vreme_termina,
-        
         req.body.savetnik,
         req.body.grad,
         req.body.djeca,
