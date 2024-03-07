@@ -540,7 +540,7 @@
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title mb-0">Termin info</h5>
-                    <div class="form-group mt-3">
+                    <!--<div class="form-group mt-3">
                         <label> Datum <small class="text-muted">dd/mm/yyyy</small></label>
                             <input
                             type="text"
@@ -548,7 +548,19 @@
                             id="date-mask"
                             placeholder="Datum termina"
                             name="datum_zakazivanja"/>
+                      </div>-->
+                      
+                      <div class="form-group mt-3">
+                        <label> Datum <small class="text-muted">dd/mm/yyyy</small></label>
+                        <input
+                          type="text"
+                          class="form-control date-inputmask"
+                          id="date-mask"
+                          placeholder="Datum termina"
+                          name="datum_zakazivanja"
+                        />
                       </div>
+                      
 
                       <div class="form-group mt-3">
                         <label> Vrijeme <small class="text-muted">sat/minut/am-pm</small></label>
@@ -700,6 +712,18 @@
       //var quill = new Quill("#editor", {
        // theme: "snow",
       //});
+
+      
+  $(document).ready(function () {
+    // Inicijalizacija Datepicker-a
+    $('#date-mask').datepicker({
+      format: 'dd/mm/yyyy', // Postavite format datuma prema vašim potrebama
+      autoclose: true,
+      todayHighlight: true
+    });
+  });
+</script>
+
   </script>
       
   </body>

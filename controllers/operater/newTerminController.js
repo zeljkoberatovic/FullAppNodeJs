@@ -1,15 +1,21 @@
+const moment = require('moment');
 const mysql = require('mysql2');
 const db = require('../../config/db_connection');
 
 const newTerminController = (req, res) => {
-    let user = req.session.user;
+     let user = req.session.user;
+    // Pretvaranje datuma iz teksta u JavaScript Date objekt
+    const datumZakazivanja = moment(req.body.datum_zakazivanja, 'DD/MM/YYYY').toDate();
+    // Formatiranje datuma prema MySQL formatu (YYYY-MM-DD)
+    const mysqlDatum = moment(datumZakazivanja).format('YYYY-MM-DD');
+
     const query = `
         INSERT INTO termini 
             (ime_stranke, prezime_stranke, godiste_stranke, ime_supruznika, prezime_supruznika,
-            godiste_supruznika, fiksni_telefon, mobilni_telefon, adresa, 
+            godiste_supruznika, fiksni_telefon, mobilni_telefon, adresa, datum_zakazivanja,
             vreme_termina, savetnik, grad, djeca, operacije, terapija, napomena, active,
             vrednost_ugovora, razlog, ulaz, proizvod, operater) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     const values = [
         req.body.ime_stranke,
         req.body.prezime_stranke,
@@ -21,7 +27,10 @@ const newTerminController = (req, res) => {
         req.body.mobilni_telefon,
         req.body.adresa,
         //req.body.datum_zakazivanja,
+        //datum_zakazivanja: 
+        mysqlDatum,
         req.body.vreme_termina,
+        
         req.body.savetnik,
         req.body.grad,
         req.body.djeca,
