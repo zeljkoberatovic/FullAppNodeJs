@@ -660,6 +660,7 @@
     <script src="../assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
     <script src="../assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="../assets/libs/quill/dist/quill.min.js"></script>
+    <script src="../js/date-time.js"></script>
 
     <script>
       //***********************************//
@@ -702,15 +703,21 @@
        // theme: "snow",
       //});
 
-    //moment biblioteka
-    $(document).ready(function () {
-    // Inicijalizacija Datepicker-a
-    $('#date-mask').datepicker({
-      format: 'dd/mm/yyyy', 
-      autoclose: true,
-      todayHighlight: true
-    });
-  });
+      $(document).ready(function () {
+      // Inicijalizacija Datepicker-a
+      $('#date-mask').datepicker({
+        format: 'dd/mm/yyyy', 
+        autoclose: true,
+        todayHighlight: true
+      });
+
+      
+});
+
+
+   
+    </script>
+    
 </script>
 
   </script>
