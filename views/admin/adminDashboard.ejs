@@ -395,15 +395,9 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title"> Admin Dashboard</h4>
+              <h2 class="page-title"> Admin Dashboard</h2>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                      Library
-                    </li>
-                  </ol>
                 </nav>
               </div>
             </div>
@@ -423,7 +417,7 @@
             <!-- Column -->
             <div class="col-md-6 col-lg-2 col-xlg-3">
               <div class="card card-hover">
-                <div class="box bg-cyan text-center">
+                <div class="box bg-cyan text-center" style="box-shadow:3px 3px 7px #666;">
                   <h1 class="font-light text-white">
                     <i class="mdi mdi-view-dashboard"></i>
                   </h1>
@@ -434,7 +428,7 @@
             <!-- Column -->
             <div class="col-md-6 col-lg-4 col-xlg-3">
               <div class="card card-hover">
-                <div class="box bg-success text-center">
+                <div class="box bg-cyan text-center"style="box-shadow:3px 3px 7px #666;" >
                   <h1 class="font-light text-white">
                     <i class="mdi mdi-chart-areaspline"></i>
                   </h1>
@@ -445,7 +439,7 @@
             <!-- Column -->
             <div class="col-md-6 col-lg-2 col-xlg-3">
               <div class="card card-hover">
-                <div class="box bg-warning text-center">
+                <div class="box bg-cyan text-center" style="box-shadow:3px 3px 7px #666;">
                   <h1 class="font-light text-white">
                     <i class="mdi mdi-collage"></i>
                   </h1>
@@ -456,7 +450,7 @@
             <!-- Column -->
             <div class="col-md-6 col-lg-2 col-xlg-3">
               <div class="card card-hover">
-                <div class="box bg-danger text-center">
+                <div class="box bg-cyan text-center" style="box-shadow:3px 3px 7px #666;">
                   <h1 class="font-light text-white">
                     <i class="mdi mdi-border-outside"></i>
                   </h1>
@@ -467,7 +461,7 @@
             <!-- Column -->
             <div class="col-md-6 col-lg-2 col-xlg-3">
               <div class="card card-hover">
-                <div class="box bg-info text-center">
+                <div class="box bg-cyan text-center" style="box-shadow:3px 3px 7px #666;">
                   <h1 class="font-light text-white">
                     <i class="mdi mdi-arrow-all"></i>
                   </h1>
@@ -483,18 +477,18 @@
             <!-- Recent comment and chats -->
             <!-- ============================================================== -->
               <div class="row">
-                <div class="col-lg-6 ">
-                  <div class="card">
+                <div class="col-lg-6">
+                  <div class="card" style="box-shadow: 2px 2px 5px #888888;">
                         <div class="card-body">
                             <h4 class="card-title">Operateri</h4>
                         </div>
-                  <div class="comment-widgets scrollable">
-                    <!-- Comment Row -->
-                    <% for(let i =0; i < operateri.length; i++) { %>
-                    <div class="d-flex flex-row comment-row mt-0">
-                      <div class="comment-text w-100">
-                        <h6 class="font-medium">
-                          <%= operateri[i].first_name + " " + operateri[i].id %> </h6>
+                        <div class="comment-widgets scrollable">
+                          <!-- Comment Row -->
+                          <% for(let i =0; i < operateri.length; i++) { %>
+                          <div class="d-flex flex-row comment-row mt-0">
+                            <div class="comment-text w-100">
+                              <h6 class="font-medium">
+                                <%= operateri[i].first_name + " " + operateri[i].last_name %> </h6>
 
                             <div class="comment-footer">
                               <span class="text-muted float-end">April 14, 2021</span><button type="button"
@@ -502,51 +496,42 @@
                               <button type="button" class="btn btn-success btn-sm text-white">Publish</button>
                               <button type="button" class="btn btn-danger btn-sm text-white delete-user-btn"
                                       data-id=<%= operateri[i].id %> Delete</button>
-                            </div>
+                              </div>
+                          </div>
                         </div>
+                      <% } %>
                       </div>
-                    <% } %>
                     </div>
                   </div>
-                </div>
-             
 
-
-                 
-                   
                         <!-- column -->
                         <div class="col-lg-6">
-                          <div class="card">
+                          <div class="card" style="box-shadow: 2px 2px 5px #888888;">
                                 <div class="card-body">
                                   <h4 class="card-title">Savjetnici</h4>
                                 </div>
-                            <div class="comment-widgets scrollable">
-                              <!-- Comment Row -->
-                              <% for(let i = 0; i < savetnici.length; i++) { %>
-                                <div class="d-flex flex-row comment-row mt-0">
-                                  <div class="comment-text w-100">
-                                    <h6 class="font-medium"> <%= savetnici[i].first_name + " " + savetnici[i].last_name  %> </h6>
-                                  <div class="comment-footer">
-                                    <span class="text-muted float-end">April 14, 2021</span><button type="button"
+                              <div class="comment-widgets scrollable">
+                                <!-- Comment Row -->
+                                <% for(let i = 0; i < savetnici.length; i++) { %>
+                                  <div class="d-flex flex-row comment-row mt-0">
+                                    <div class="comment-text w-100">
+                                        <h6 class="font-medium"> <%= savetnici[i].first_name + " " + savetnici[i].last_name  %> </h6>
+                                      <div class="comment-footer">
+                                            <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                             class="btn btn-cyan btn-sm text-white">Edit</button>
                                     <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
                                     <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
+                                    </div>
                                   </div>
                                 </div>
+                                <% } %>
                               </div>
-                              <% } %>
-                          </div>
+                            </div>
                         </div>
-                    </div>
                 
-                  
-
-
-              
-                  
-                    <!-- column -->
+                        <!-- column -->
                         <div class="col-lg-6">
-                          <div class="card">
+                          <div class="card" style="box-shadow: 2px 2px 5px #888888;">
                               <div class="card-body">
                                 <h4 class="card-title">Proizvodi</h4>
                               </div>
@@ -555,7 +540,7 @@
                                 <% for(let i = 0; i < proizvodi.length; i++) { %>
                                   <div class="d-flex flex-row comment-row mt-0">
                                     <div class="comment-text w-100">
-                                      <h6 class="font-medium"><%= proizvodi[i].name%></h6>
+                                      <h6 class="font-medium"><%= proizvodi[i].name + " - " + proizvodi[i].price %>$</h6>
                                       <div class="comment-footer">
                                       <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                                 class="btn btn-cyan btn-sm text-white">Edit</button>
@@ -569,14 +554,11 @@
                           </div>
                       </div>
                     </div>
-                 
 
 
-
-                  
-                    <!-- column -->
+                     <!-- column -->
                         <div class="col-lg-6">
-                          <div class="card">
+                          <div class="card"style="box-shadow: 2px 2px 5px #888888;" >
                               <div class="card-body">
                                 <h4 class="card-title">Gradovi</h4>
                               </div>
@@ -597,7 +579,6 @@
                                 <% } %>
                           </div>
                       </div>
-                    
                   </div> 
 
 
@@ -612,8 +593,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-              All Rights Reserved by Zeljko Beratovic. Designed and Developed by
-              
+              Designed and Developed by Zeljko Beratovic!!!
             </footer>
         </div>
   </div>

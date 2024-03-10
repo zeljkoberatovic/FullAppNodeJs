@@ -4,7 +4,6 @@ const routes = require('./routes');
 const session = require("express-session");
 
 
-
 const HALF_DAY = 1000 * 60 * 60 * 12; //= 12h
 
 const {
