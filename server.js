@@ -3,7 +3,6 @@ const app = express();
 const routes = require('./routes');
 const session = require("express-session");
 
-
 const HALF_DAY = 1000 * 60 * 60 * 12; //= 12h
 
 const {
@@ -20,8 +19,6 @@ app.use(express.json());
 app.use(express.static( __dirname + "/public"));
 
 
-
-
 app.use(session({
     name: SESS_NAME,
     resave: false,
@@ -34,13 +31,8 @@ app.use(session({
     }
 }));
 
-
-
-
 app.set("view engine", "ejs");
 app.use('/', routes);
-
-
 
 
 app.listen(3000, function() {

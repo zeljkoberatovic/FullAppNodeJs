@@ -1,4 +1,29 @@
+<% url = "http://localhost:3000" %>
 <%- include('../layout/header.ejs') %>
+
+<% 
+    function test() { return "TEST"; };
+    function dateTime(date = false, format = false) {
+      // Promjenljiva koja oznacava datum koji treba vratiti
+      let new_date;
+      // - Jezik, inicijalna vrijednost srpski-latinica-CG
+      let lang = "sr-Latn-ME";
+      if(date) { date = new Date(date); }
+      else { date = new Date(); }
+  
+      // - Format za MySQL bazu podataka
+      if(format == "db") {
+          format = { year: 'numeric', month: '2-digit', day: '2-digit', 
+                     hour: '2-digit', minute: '2-digit', second: '2-digit' };
+          lang = "sv-SE";
+          new_date = date.toLocaleDateString(lang, format);
+          return new_date; 
+     
+      } else { format = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' }; }
+      
+      return date.toLocaleDateString(lang, format);
+  
+    } %>    
 
   <body>
     <!-- ============================================================== -->
@@ -92,31 +117,7 @@
               <!-- ============================================================== -->
               <!-- create new -->
               <!-- ============================================================== -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <span class="d-none d-md-block"
-                    >Create New <i class="fa fa-angle-down"></i
-                  ></span>
-                  <span class="d-block d-md-none"
-                    ><i class="fa fa-plus"></i
-                  ></span>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
+              
               <!-- ============================================================== -->
               <!-- Search -->
               <!-- ============================================================== -->
@@ -358,21 +359,17 @@
           <nav class="sidebar-nav">
             <ul id="sidebarnav" class="pt-4">
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/admin"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-view-dashboard"></i
-                  ><span class="hide-menu">Dashboard</span></a>
+                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="/savetnik" aria-expanded="false">
+                  <i class="mdi mdi-view-dashboard"></i>
+                  <span class="hide-menu">Savjetnik Dashboard</span></a>
               </li>
-              
-             </ul>
-            </li>
-             
             </ul>
-          </nav>
+          </li>
+        </ul>
+      </nav>
           <!-- End Sidebar navigation -->
-        </div>
+      </div>
         <!-- End Sidebar scroll-->
       </aside>
       <!-- ============================================================== -->
@@ -388,7 +385,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Dashboard</h4>
+              <h3 class="page-title">Termini</h3>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   
@@ -434,7 +431,7 @@
                           <%= termini[i].ime_stranke+ " " +termini[i].prezime_stranke  %>
                         </h1>
                       <h6>Opis Pregleda: <span class="text-white"> <%= termini[i].operacije %></span></h6>
-                        <h6 class="text-white"><%= termini[i].datum_zakazivanja+ " " +termini[i].vreme_termina %></h6>
+                        <h6 class="text-white"><%= dateTime(termini[i].datum_zakazivanja) + " - " + termini[i].vreme_termina %></h6>
                     </div>
                   </a>
                 </div>
@@ -475,7 +472,6 @@
         <!-- ============================================================== -->
         <footer class="footer text-center">
           All Rights Reserved by Matrix-admin. Designed and Developed by Zeljko Beratovic
-          
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->

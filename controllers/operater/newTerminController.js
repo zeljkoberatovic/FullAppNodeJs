@@ -47,7 +47,7 @@ const newTerminController = (req, res) => {
     db.query(query, values, (err, results) => {
         if (err) {
             console.error('Greška prilikom dodavanja novog termina:', err);
-            res.status(500).send('Došlo je do greške prilikom dodavanja novog termina.');
+            res.status(500).send('  Došlo je do greške prilikom dodavanja novog termina.  Niste unijeli sve podatke...');
         } else {
             res.redirect("/operater");
         }

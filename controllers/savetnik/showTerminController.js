@@ -21,6 +21,7 @@ const showTerminController = async (req, res) => {
         res.render("savetnik/showTermin", {
             name: user.first_name,
             termin: termin[0],
+            
         });
     } catch (err) {
         console.error('Greška prilikom dohvatanja podataka za prikaz termina:', err);
