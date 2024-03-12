@@ -20,7 +20,11 @@ const operaterController = async (req, res) => {
         const [savjetnici, savjetniciFields] = await db.promise().query('SELECT * FROM users WHERE role = "savetnik"');
 
         // Upit za dohvat termina operatera
-        const [termini, terminiFields] = await db.promise().query('SELECT * FROM termini WHERE operater = ?', [user.first_name]);
+        //const [termini, terminiFields] = await db.promise().query('SELECT * FROM termini WHERE operater = ?', [user.first_name]);
+
+        // Upit za dohvat aktivnih termina operatera
+        const [termini, terminiFields] = await db.promise().query('SELECT * FROM termini WHERE operater = ? AND active = true', [user.first_name]);
+
 
         // Renderovanje stranice
         res.render("operater/index", {
@@ -28,6 +32,7 @@ const operaterController = async (req, res) => {
             savetnici: savjetnici,
             gradovi: sity,
             brojTermina: termini.length,
+            
         });
     } catch (err) {
         console.error('Greška prilikom dohvatanja podataka:', err);
