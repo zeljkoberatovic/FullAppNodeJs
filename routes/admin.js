@@ -16,8 +16,8 @@ router.get("/create/proizvod", (req, res) => {
     res.render("admin/createProizvod");
 });
 
-router.get("/admin/delete/user/:userId", require("../controllers/admin/deleteUserController"));
-router.get("/admin/delete/proizvod/:proizvodId", require("../controllers/admin/deleteProizvodController"));
+router.delete("/delete/user/:userId", require("../controllers/admin/deleteUserController"));
+router.get("/delete/proizvod/:proizvodId", require("../controllers/admin/deleteProizvodController"));
 
 
 

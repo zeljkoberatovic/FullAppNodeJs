@@ -1,24 +1,25 @@
 const mysql = require('mysql2');
 const db = require('../../config/db_connection');
 
-const deleteProizvodController = (req, res) => { 
-   
+const deleteProizvodController = async (req, res) => { 
     const proizvodId = req.params.proizvodId; 
-
     const connection = mysql.createConnection(db);
 
-  connection.query('DELETE FROM users WHERE id = ?', [proizvodId], (err, results) => {
-        connection.end();  // Zatvorite vezu nakon izvršenja upita
+    try {
+        const result = await new Promise((resolve, reject) => {
+            connection.query('DELETE FROM users WHERE id = ?', [proizvodId], (err, results) => {
+                if (err) reject(err);
+                else resolve(result);
+            });
+        });
 
-        
-        if (err) {
-            res.status(500).json({ error: err });
-        } else {
-            res.json({ message: "ok" });
-        }
-        
-    });
+        connection.end();  
+
+        res.render("admin");
+        res.json({ message: "ok" });
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
 };
-
 
 module.exports = deleteProizvodController;

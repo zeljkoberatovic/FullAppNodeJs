@@ -25,7 +25,6 @@ const operaterController = async (req, res) => {
         // Upit za dohvat aktivnih termina operatera
         const [termini, terminiFields] = await db.promise().query('SELECT * FROM termini WHERE operater = ? AND active = true', [user.first_name]);
 
-
         // Renderovanje stranice
         res.render("operater/index", {
             name: user.first_name,

@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keywords"
-      content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template"/>
-    <meta name="description"
-      content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"/>
-    <meta name="robots" content="noindex,nofollow" />
-    <title></title>
-    <!-- Favicon icon -->
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="../assets/images/favicon.png"/>
-    <!-- Custom CSS -->
-    <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="../dist/css/style.min.css" rel="stylesheet" />
+<% url = "http://localhost:3000" %>
+<%- include('../layout/header.ejs') %>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    
-
-  </head>
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -483,6 +460,7 @@
                         </div>
                         <div class="comment-widgets scrollable">
                           <!-- Comment Row -->
+                          <% if (operateri && Array.isArray(operateri)) { %>
                           <% for(let i =0; i < operateri.length; i++) { %>
                           <div class="d-flex flex-row comment-row mt-0">
                             <div class="comment-text w-100">
@@ -493,10 +471,12 @@
                               <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                       class="btn btn-cyan btn-sm text-white">Edit</button>
                               <button type="button" class="btn btn-success btn-sm text-white">Publish</button>
-                              <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
+                              <button type="button"class="btn btn-danger btn-sm text-white delete-user-btn"
+                              data-id="<%= operateri[i].id %>"> Delete</button>
                               </div>
                               </div>
                             </div>
+                          <% } %>
                           <% } %>
                           </div>
                         </div>
@@ -518,7 +498,7 @@
                                             <span class="text-muted float-end">April 14, 2021</span>
                                             <a href="/admin/savetnik/termini/<%= savetnici[i].first_name+ " " +savetnici[i].last_name %> " type="button" class="btn btn-cyan btn-sm text-white">Termini</a>
                                     <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
-                                    <button type="button"class="btn btn-danger btn-sm text-white"> Delete</button>
+                                    <button type="button"class="btn btn-danger btn-sm text-white data-id=<%= savetnici[i].id %>"> Delete</button>
                                     </div>
                                   </div>
                                 </div>
@@ -543,8 +523,9 @@
                                       <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                                 class="btn btn-cyan btn-sm text-white">Edit</button>
                                         <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
-                                        <button type="button"class="btn btn-danger btn-sm text-white 
-                                        delete-proizvod-btn" data-id="<%= proizvodi[i].id %>" > Delete</button>
+                                        <!--<button type="button"class="btn btn-danger btn-sm text-white 
+                                        delete-proizvod-btn" data-id="<%= proizvodi[i].id %>" > Delete</button>-->
+                                        <a href="http://localhost:3000/admin/delete/proizvod/<%= proizvodi[i].id %>">Delete</a>
                                       </div>
                                   </div>
                                 </div>
@@ -625,18 +606,21 @@
             <script src="../assets/libs/flot/jquery.flot.crosshair.js"></script>
             <script src="../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
             <script src="../dist/js/pages/chart/chart-page-init.js"></script>
+            
 
+<!-- 1.
     <script>
-      let btn_delete = document.querySelectorAll(".delete-user-btn");  
+      let btn_delete_proizvod = document.querySelectorAll(".delete-proizvod-btn");  
       let i;
 
-      for(i=0; i < btn_delete.length; i++) {
-        btn_delete[i].addEventListener("click", function() {
+      for(i=0; i < btn_delete_proizvod.length; i++) {
+        btn_delete_proizvod[i].addEventListener("click", function() {
           id = this.getAttribute("data-id");
+          console.log(id);
 	          
           async function fetchData() {
             try {
-              const response = await fetch("/admin/delete/user/" + id);
+              const response = await fetch(`/admin/delete/proizvod/${id}`);
               const data = await response.json();
               console.log(data);
            
@@ -645,29 +629,40 @@
             }
 
           }
-      fetchData();
+            fetchData();
          });
       }
     </script>
-          <!--<script>
+-->
+        
+<script>
+  $(".delete-user-btn").on('click', function () {
+    let id = $(this).attr('data-id');
+    let potvrda = confirm("Da li ste sigurni ?");
+    if (potvrda) {
+      $.ajax({
+        url: `/admin/delete/user/${id}`,
+        method: 'DELETE' // Ovde se navodi metoda DELETE jer želimo da obrišemo korisnika
+      })
+      .then(res => {
+        // Ovde proveravamo odgovor od servera
+        if (res.message === "ok") {
+          window.location.href = "/admin";
+        } else {
+          alert("Došlo je do greške prilikom brisanja korisnika.");
+        }
+      })
+      .catch(err => {
+        console.error("Greška prilikom slanja zahteva:", err);
+        alert("Došlo je do greške prilikom slanja zahteva za brisanje korisnika.");
+      });
+    }
+  });
+</script>
 
-            $(".delete-proizvod-btn").on('click', function () {
-              let id = $(this).attr('data-id');
-              console.log(id);
-              let potvrda = confirm("Da li ste sigurni ?");
-              if(potvrda){
-                $.ajax({
-                  url: `/admin/delete/proizvod/${id}` 
-                })
-                .then(res => {
-                  if(res == "Ok"){
-                    window.location.href = "/admin";
-                  }
-                })
-              }
-            })
-          </script>-->
-    <script>
+
+   <!-- 3.
+   <script>
       $(document).ready(function() {
         $(".delete-proizvod-btn").on('click', function () {
           let id = $(this).attr('data-id');
@@ -693,7 +688,7 @@
         });
       });
     </script>
-    
+  --> 
 
   </body>
 </html>

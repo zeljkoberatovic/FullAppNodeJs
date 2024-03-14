@@ -1,23 +1,21 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 const db = require('../../config/db_connection');
 
-const deleteUserController = (req, res) => {  
-//const user = req.params.user; 
-    let user = results[0];
-    req.session.user = user;
+const deleteUserController = async (req, res) => {
+    const userId = req.params.userId; 
 
-    const connection = mysql.createConnection(db);
-    connection.query('DELETE FROM users WHERE id = ?', [user], (err, results) => {
-        connection.end();  // Zatvara vezu nakon izvršenja upita
-
-    if (err) {
-            res.status(500).json({ error: err });
-    } else {
-            res.json({ message: "ok" });
-        }
+    try {
+        const connection = await mysql.createConnection(db);
         
-    });
-};
+        // Izvršavanje upita za brisanje korisnika
+        const [result, fields] = await connection.execute('DELETE FROM users WHERE id = ?', [userId]);
 
+        await connection.end(); // Zatvara vezu sa bazom podataka
+
+        res.json({ message: "ok" }); // Ako je brisanje uspešno, vraćamo poruku "ok"
+    } catch (error) {
+        res.status(500).json({ error: error.message }); // Ako dođe do greške, vraćamo status 500 i poruku o grešci
+    }
+};
 
 module.exports = deleteUserController;
