@@ -3,10 +3,8 @@ const db = require('../../config/db_connection');
 
 const deleteUserController = async (req, res) => {
     const userId = req.params.userId; 
-
     try {
         const connection = await mysql.createConnection(db);
-        
         // Izvršavanje upita za brisanje korisnika
         const [result, fields] = await connection.execute('DELETE FROM users WHERE id = ?', [userId]);
 

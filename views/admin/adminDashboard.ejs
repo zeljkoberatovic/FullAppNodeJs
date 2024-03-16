@@ -1,7 +1,7 @@
 <% url = "http://localhost:3000" %>
 <%- include('../layout/header.ejs') %>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
 
 <body>
     <!-- ============================================================== -->
@@ -523,9 +523,8 @@
                                       <span class="text-muted float-end">April 14, 2021</span><button type="button"
                                                                 class="btn btn-cyan btn-sm text-white">Edit</button>
                                         <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
-                                        <!--<button type="button"class="btn btn-danger btn-sm text-white 
-                                        delete-proizvod-btn" data-id="<%= proizvodi[i].id %>" > Delete</button>-->
-                                        <a href="http://localhost:3000/admin/delete/proizvod/<%= proizvodi[i].id %>">Delete</a>
+                                        <button type="button"class="btn btn-danger btn-sm text-white 
+                                        delete-proizvod-btn" data-id="<%= proizvodi.id %>" > Delete</button>
                                       </div>
                                   </div>
                                 </div>
@@ -606,7 +605,6 @@
             <script src="../assets/libs/flot/jquery.flot.crosshair.js"></script>
             <script src="../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
             <script src="../dist/js/pages/chart/chart-page-init.js"></script>
-            
 
 <!-- 1.
     <script>
@@ -638,30 +636,39 @@
 <script>
   $(".delete-user-btn").on('click', function () {
     let id = $(this).attr('data-id');
+    console.log(id);
     let potvrda = confirm("Da li ste sigurni ?");
     if (potvrda) {
-      $.ajax({
-        url: `/admin/delete/user/${id}`,
-        method: 'DELETE' // Ovde se navodi metoda DELETE jer želimo da obrišemo korisnika
-      })
-      .then(res => {
-        // Ovde proveravamo odgovor od servera
-        if (res.message === "ok") {
-          window.location.href = "/admin";
-        } else {
-          alert("Došlo je do greške prilikom brisanja korisnika.");
-        }
-      })
-      .catch(err => {
-        console.error("Greška prilikom slanja zahteva:", err);
-        alert("Došlo je do greške prilikom slanja zahteva za brisanje korisnika.");
-      });
+        fetch(`/delete/user/${id}`, {
+            method: 'DELETE', // Ovdje se navodi metoda DELETE jer želimo da obrišemo korisnika
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json(); // Parsiranje odgovora u JSON format ako je status uspješan
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            // Ovdje proveravamo odgovor od servera
+            if (data.message === "ok") {
+                window.location.href = "/admin";
+            } else {
+                alert("Došlo je do greške prilikom brisanja korisnika.");
+            }
+        })
+        .catch(err => {
+            //console.error("Greška prilikom slanja zahteva:", err);
+            alert("Došlo je do greške prilikom slanja zahteva za brisanje korisnika.");
+        });
     }
-  });
+});
+
 </script>
 
 
-   <!-- 3.
+
+
+<!-- 3.
    <script>
       $(document).ready(function() {
         $(".delete-proizvod-btn").on('click', function () {
