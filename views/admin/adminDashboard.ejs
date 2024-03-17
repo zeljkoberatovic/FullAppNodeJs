@@ -1,8 +1,4 @@
-<% url = "http://localhost:3000" %>
 <%- include('../layout/header.ejs') %>
-  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-  
-
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -38,11 +34,7 @@
               <b class="logo-icon ps-2">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                 <!-- Dark Logo icon -->
-                <img
-                    src="../assets/images/logo-icon.png"
-                    alt="homepage"
-                    class="light-logo"
-                    width="25"/>
+                <img src="<%= url %>/assets/images/logo-icon.png" alt="homepage" class="light-logo" width="25"/>
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text -->
@@ -62,8 +54,7 @@
             <a
               class="nav-toggler waves-effect waves-light d-block d-md-none"
               href="javascript:void(0)"
-              ><i class="ti-menu ti-close"></i
-            ></a>
+              ><i class="ti-menu ti-close"></i></a>
           </div>
           <!-- ============================================================== -->
           <!-- End Logo -->
@@ -71,8 +62,7 @@
           <div
             class="navbar-collapse collapse"
             id="navbarSupportedContent"
-            data-navbarbg="skin5"
-          >
+            data-navbarbg="skin5">
             <!-- ============================================================== -->
             <!-- toggle and nav items -->
             <!-- ============================================================== -->
@@ -98,11 +88,11 @@
                     <span class="d-none d-md-block">Kreiraj <i class="fa fa-angle-down"></i></span>
                     <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
                   </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/admin/create">Korisnik</a></li>
-                  <li><a class="dropdown-item" href="/admin/create/grad">Grad</a></li>
-                      <li><a class="dropdown-item" href="/admin/create/proizvod">Proizvod</a></li>
-                  </ul>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/admin/create">Korisnik</a></li>
+                        <li><a class="dropdown-item" href="/admin/create/grad">Grad</a></li>
+                            <li><a class="dropdown-item" href="/admin/create/proizvod">Proizvod</a></li>
+                        </ul>
               </li>
               <!-- ============================================================== -->
               <!-- Search -->
@@ -364,7 +354,7 @@
       <!-- ============================================================== -->
       <!-- Page wrapper  -->
       <!-- ============================================================== -->
-    <div class="page-wrapper ">
+      <div class="page-wrapper ">
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
@@ -446,8 +436,6 @@
               </div>
             </div>
             <!-- Column -->
-            
-        
 
             <!-- ============================================================== -->
             <!-- Recent comment and chats -->
@@ -524,17 +512,17 @@
                                                                 class="btn btn-cyan btn-sm text-white">Edit</button>
                                         <button type="button"class="btn btn-success btn-sm text-white">Publish</button>
                                         <button type="button"class="btn btn-danger btn-sm text-white 
-                                        delete-proizvod-btn" data-id="<%= proizvodi.id %>" > Delete</button>
+                                        delete-proizvod-btn" data-id="<%= proizvodi[i].id %>" > Delete</button>
                                       </div>
                                   </div>
                                 </div>
                                 <% } %>
-                          </div>
+                           </div>
+                        </div>
                       </div>
-                    </div>
 
 
-                     <!-- column -->
+                        <!-- column -->
                         <div class="col-lg-6">
                           <div class="card" style="box-shadow: 2px 2px 5px #888888;" >
                               <div class="card-body">
@@ -555,92 +543,28 @@
                                   </div>
                                 </div>
                                 <% } %>
-                          </div>
-                      </div>
-                  </div> 
+                           </div>
+                         </div>
+                      </div> 
+                  <!-- ============================================================== -->
+                  <!-- footer -->
+                  <!-- ============================================================== -->
+                  <footer class="footer text-center">
+                    Designed and Developed by Zeljko Beratovic!!!
+                  </footer>
+            </div>
+            </div>
 
+  <%- include('../layout/footer.ejs') %>      
 
-          
-            <!-- Recent comment and chats -->
-            <!-- End Container fluid  -->
-  
-           <!-- ============================================================== -->
-       
-       
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-              Designed and Developed by Zeljko Beratovic!!!
-            </footer>
-        </div>
-  </div>
-   
-          <!-- ============================================================== -->
-          <!-- End footer -->
-          <!-- ============================================================== -->
-        
-          <!-- ============================================================== -->
-          <!-- All Jquery -->
-          <!-- ============================================================== -->
-    
-            <!-- Bootstrap tether Core JavaScript -->
-            <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-            <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-            <!--Wave Effects -->
-            <script src="../dist/js/waves.js"></script>
-            <!--Menu sidebar -->
-            <script src="../dist/js/sidebarmenu.js"></script>
-            <!--Custom JavaScript -->
-            <script src="../dist/js/custom.min.js"></script>
-            <!--This page JavaScript -->
-            <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
-            <!-- Charts js Files -->
-            <script src="../assets/libs/flot/excanvas.js"></script>
-            <script src="../assets/libs/flot/jquery.flot.js"></script>
-            <script src="../assets/libs/flot/jquery.flot.pie.js"></script>
-            <script src="../assets/libs/flot/jquery.flot.time.js"></script>
-            <script src="../assets/libs/flot/jquery.flot.stack.js"></script>
-            <script src="../assets/libs/flot/jquery.flot.crosshair.js"></script>
-            <script src="../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-            <script src="../dist/js/pages/chart/chart-page-init.js"></script>
-
-<!-- 1.
-    <script>
-      let btn_delete_proizvod = document.querySelectorAll(".delete-proizvod-btn");  
-      let i;
-
-      for(i=0; i < btn_delete_proizvod.length; i++) {
-        btn_delete_proizvod[i].addEventListener("click", function() {
-          id = this.getAttribute("data-id");
-          console.log(id);
-	          
-          async function fetchData() {
-            try {
-              const response = await fetch(`/admin/delete/proizvod/${id}`);
-              const data = await response.json();
-              console.log(data);
-           
-          } catch(error) {
-              console.error("Greska: ", error);
-            }
-
-          }
-            fetchData();
-         });
-      }
-    </script>
--->
-        
-<script>
-  $(".delete-user-btn").on('click', function () {
+  <script>
+   $(".delete-user-btn").on('click', function () {
     let id = $(this).attr('data-id');
     console.log(id);
     let potvrda = confirm("Da li ste sigurni ?");
     if (potvrda) {
         fetch(`/delete/user/${id}`, {
-            method: 'DELETE', // Ovdje se navodi metoda DELETE jer želimo da obrišemo korisnika
+            method: 'DELETE', 
         })
         .then(response => {
             if (response.ok) {
@@ -664,11 +588,7 @@
 });
 
 </script>
-
-
-
-
-<!-- 3.
+<!-- 
    <script>
       $(document).ready(function() {
         $(".delete-proizvod-btn").on('click', function () {
@@ -694,8 +614,8 @@
           }
         });
       });
-    </script>
-  --> 
+    </script>-->
+
 
   </body>
 </html>

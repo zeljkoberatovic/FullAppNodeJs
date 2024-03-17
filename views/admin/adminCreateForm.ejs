@@ -21,8 +21,7 @@
       data-sidebartype="full"
       data-sidebar-position="absolute"
       data-header-position="absolute"
-      data-boxed-layout="full"
-    >
+      data-boxed-layout="full">
       <!-- ============================================================== -->
       <!-- Topbar header - style you can find in pages.scss -->
       <!-- ============================================================== -->
@@ -32,13 +31,13 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
               <!-- Logo icon -->
               <b class="logo-icon ps-2">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                 <!-- Dark Logo icon -->
                 <img
-                  src="../assets/images/logo-icon.png"
+                  src="<%= url %>/assets/images/logo-icon.png"
                   alt="homepage"
                   class="light-logo"
                   width="25"
@@ -49,10 +48,9 @@
               <span class="logo-text ms-2">
                 <!-- dark Logo text -->
                 <img
-                  src="../assets/images/logo-text.png"
+                  src="<%= url %>/assets/images/logo-text.png"
                   alt="homepage"
-                  class="light-logo"
-                />
+                  class="light-logo"/>
               </span>
             </a>
             <!-- ============================================================== -->
@@ -61,11 +59,9 @@
             <!-- ============================================================== -->
             <!-- Toggle which is visible on mobile only -->
             <!-- ============================================================== -->
-            <a
-              class="nav-toggler waves-effect waves-light d-block d-md-none"
-              href="javascript:void(0)"
-              ><i class="ti-menu ti-close"></i
-            ></a>
+            <a class="nav-toggler waves-effect waves-light d-block d-md-none"
+              href="javascript:void(0)">
+              <i class="ti-menu ti-close"></i></a>
           </div>
           <!-- ============================================================== -->
           <!-- End Logo -->
@@ -73,8 +69,7 @@
           <div
             class="navbar-collapse collapse"
             id="navbarSupportedContent"
-            data-navbarbg="skin5"
-          >
+            data-navbarbg="skin5">
             <!-- ============================================================== -->
             <!-- toggle and nav items -->
             <!-- ============================================================== -->
@@ -394,6 +389,7 @@
 
         <!-- ============================================================== -->
         <!-- Container fluid  Kreiraj Korisnika -forma-->
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-7 offset-2">
@@ -439,20 +435,17 @@
                 </div>
               </form>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-        <!-- End Container fluid  Kreiraj Korisnika -forma-->
-        <!-- ============================================================== -->
-
-
-
+      </div>
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer text-center">
-          
-        </footer>
+        
+          <footer class="footer text-center">
+            Designed and Developed by Zeljko Beratovic!!!
+          </footer> 
+        
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->
@@ -463,36 +456,6 @@
       <!-- ============================================================== -->
     </div>
 
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-
-
-
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
-    <!-- Charts js Files -->
-    <script src="../assets/libs/flot/excanvas.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.pie.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.time.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.stack.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="../dist/js/pages/chart/chart-page-init.js"></script>
+    <%- include('../layout/footer.ejs') %>
   </body>
 </html>

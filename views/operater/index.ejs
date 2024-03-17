@@ -1,99 +1,41 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="keywords"
-      content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template"
-    />
-    <meta
-      name="description"
-      content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
-    />
-    <meta name="robots" content="noindex,nofollow" />
-    <title><%= name %></title>
-    <!-- Favicon icon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../assets/images/favicon.png"
-    />
-    <!-- Custom CSS -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/libs/select2/dist/css/select2.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/libs/jquery-minicolors/jquery.minicolors.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/libs/quill/dist/quill.snow.css"
-    />
-    <link href="../dist/css/style.min.css" rel="stylesheet" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
+<%- include(url + '/layout/header.ejs') %>
 
-  <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-      <div class="lds-ripple">
-        <div class="lds-pos"></div>
-        <div class="lds-pos"></div>
+<body>
+      <!-- ============================================================== -->
+      <!-- Preloader - style you can find in spinners.css -->
+      <!-- ============================================================== -->
+      <div class="preloader">
+        <div class="lds-ripple">
+          <div class="lds-pos"></div>
+          <div class="lds-pos"></div>
+        </div>
       </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div
-      id="main-wrapper"
-      data-layout="vertical"
-      data-navbarbg="skin5"
-      data-sidebartype="full"
-      data-sidebar-position="absolute"
-      data-header-position="absolute"
-      data-boxed-layout="full"
-    >
       <!-- ============================================================== -->
-      <!-- Topbar header - style you can find in pages.scss -->
+      <!-- Main wrapper - style you can find in pages.scss -->
       <!-- ============================================================== -->
+      <div
+        id="main-wrapper"
+        data-layout="vertical"
+        data-navbarbg="skin5"
+        data-sidebartype="full"
+        data-sidebar-position="absolute"
+        data-header-position="absolute"
+        data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
       <header class="topbar" data-navbarbg="skin5">
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
           <div class="navbar-header" data-logobg="skin5">
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
               <!-- Logo icon -->
               <b class="logo-icon ps-2">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                 <!-- Dark Logo icon -->
-                <img
-                  src="../assets/images/users/1.jpg"
-                  alt="homepage"
-                  class="light-logo"
-                  width="25"
-                />
+                <img src="<%= url %>/assets/images/users/1.jpg" alt="homepage" class="light-logo" width="25"/>
               </b>
               <!--End Logo icon -->
               <!-- Logo text -->
@@ -103,14 +45,6 @@
                  <span><%= name %></span>
               </span>
               </span>
-              <!-- Logo icon -->
-              <!-- <b class="logo-icon"> -->
-              <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-              <!-- Dark Logo icon -->
-              <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
-
-              <!-- </b> -->
-              <!--End Logo icon -->
             </a>
             <!-- ============================================================== -->
             <!-- End Logo -->
@@ -118,11 +52,9 @@
             <!-- ============================================================== -->
             <!-- Toggle which is visible on mobile only -->
             <!-- ============================================================== -->
-            <a
-              class="nav-toggler waves-effect waves-light d-block d-md-none"
-              href="javascript:void(0)"
-              ><i class="ti-menu ti-close"></i
-            ></a>
+            <a class="nav-toggler waves-effect waves-light d-block d-md-none"
+              href="javascript:void(0)">
+              <i class="ti-menu ti-close"></i></a>
           </div>
           <!-- ============================================================== -->
           <!-- End Logo -->
@@ -130,8 +62,7 @@
           <div
             class="navbar-collapse collapse"
             id="navbarSupportedContent"
-            data-navbarbg="skin5"
-          >
+            data-navbarbg="skin5">
             <!-- ============================================================== -->
             <!-- toggle and nav items -->
             <!-- ============================================================== -->
@@ -144,14 +75,6 @@
                   ><i class="mdi mdi-menu font-24"></i
                 ></a>
               </li>
-              <!-- ============================================================== -->
-              <!-- create new -->
-              <!-- ============================================================== -->
-              
-              <!-- ============================================================== -->
-              <!-- Search -->
-              <!-- ============================================================== -->
-              
             </ul>
             <!-- ============================================================== -->
             <!-- Right side toggle and nav items -->
@@ -372,52 +295,42 @@
           <nav class="sidebar-nav">
             <ul id="sidebarnav" class="pt-4">
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                <a class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="/operater"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-view-dashboard"></i
-                  ><span class="hide-menu">Novi Termin</span></a
-                >
+                  aria-expanded="false"> 
+                  <i class="mdi mdi-view-dashboard">
+                 </i><span class="hide-menu">Novi Termin</span></a>
               </li>
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                <a class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="/"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-chart-bar"></i
-                  ><span class="hide-menu">Aktivni Termini: <span><%= brojTermina %></span> </span>
-                  </a
-                >
+                  aria-expanded="false"><i class="mdi mdi-chart-bar">
+                  </i><span class="hide-menu">Aktivni Termini: <span><%= brojTermina %></span> </span>
+                </a>
               </li>
-              
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
         </div>
         <!-- End Sidebar scroll-->
       </aside>
-      <!-- ============================================================== -->
-      <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- Page wrapper  -->
-      <!-- ============================================================== -->
-      <div class="page-wrapper">
-        <form action="/operater/newTermin" method="POST">
+      
         <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
+        <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="page-breadcrumb">
-          <div class="row">
-            <div class="col-12 d-flex no-block align-items-center">
-              <h2 class="page-title" style="margin: 0 0 20px 10px;">Novi Termin</h2>
-             </div>
+        <div class="page-wrapper">
+          <form action="/operater/newTermin" method="POST">
+          <!-- ============================================================== -->
+          <!-- Bread crumb and right sidebar toggle -->
+          <!-- ============================================================== -->
+          <div class="page-breadcrumb">
+            <div class="row">
+              <div class="col-12 d-flex no-block align-items-center">
+                <h2 class="page-title" style="margin: 0 0 20px 10px;">Novi Termin</h2>
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
+        
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- ============================================================== -->
@@ -431,16 +344,12 @@
                 
                   <div class="card-body">
                     <h4 class="card-title">Stranka Info</h4>
-
-                    <div class="form-group row">
-                      <label
-                        for="fname"
-                        class="col-sm-3 text-end control-label col-form-label">Ime stranke</label>
+                  <div class="form-group row">
+                      <label for="fname" class="col-sm-3 text-end control-label col-form-label">Ime stranke</label>
                       <div class="col-sm-9">
-                        <input type="text" name="ime_stranke" class="form-control" id="fname"
-                             placeholder="Ime stranke"/>
+                        <input type="text" name="ime_stranke" class="form-control" id="fname" placeholder="Ime stranke"/>
                       </div>
-                    </div>
+                  </div>
 
                     <div class="form-group row">
                       <label
@@ -507,25 +416,21 @@
                             <input type="text" class="form-control" name="adresa" placeholder="Adresa">
                           </div>
                     </div>
-
               </div>
+            </div>
+
+
           </div>
-
-
-      </div>
-          <div class="col-md-6">
-              <div class="card" style="box-shadow: 2px 2px 3px #999;">
-                <div class="card-body">
-                  <h4 class="card-title mb-0">Termin info</h4>
-                   
+            <div class="col-md-6">
+                <div class="card" style="box-shadow: 2px 2px 3px #999;">
+                  <div class="card-body">
+                    <h4 class="card-title mb-0">Termin info</h4>
                       <div class="form-group mt-3">
-                        <label> Datum <small class="text-muted">dd/mm/yyyy</small></label>
-                          <input type="text" class="form-control date-inputmask" id="date-mask"
-                          placeholder="Datum termina"
-                          name="datum_zakazivanja"/>
-                      </div>
-                      
-
+                          <label> Datum <small class="text-muted">dd/mm/yyyy</small></label>
+                            <input type="text" class="form-control date-inputmask" id="date-mask"
+                            placeholder="Datum termina" name="datum_zakazivanja"/>
+                        </div>
+                        
                       <div class="form-group mt-3">
                         <label> Vrijeme <small class="text-muted">sat/minut/am-pm</small></label>
                           <input type="time" class="form-control date-inputmask" id="date-mask"
@@ -555,45 +460,45 @@
                               </select>
                           </div>
                       </div>
-                </div> <!-- and card-->  
-              </div>
+                   </div> <!-- and card-->  
+                 </div>
 
 
-              <div class="card" style="box-shadow: 2px 2px 3px #999;">
-                <div class="card-body">
-                  <h4 class="card-title">Dodatno</h4>
-                    <div class="row mb-3 align-items-center">
-                        <div class="col-lg-3 col-md-12 text-right">
-                          <span>Djeca</span>
+                  <div class="card" style="box-shadow: 2px 2px 3px #999;">
+                    <div class="card-body">
+                      <h4 class="card-title">Dodatno</h4>
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-lg-3 col-md-12 text-right">
+                              <span>Djeca</span>
+                            </div>
+                            <div class="col-lg-9 col-md-12">
+                              <input type="text" name="djeca" class="form-control" placeholder="Imena djece"/>
+                            </div>
                         </div>
-                        <div class="col-lg-9 col-md-12">
-                          <input type="text" name="djeca" class="form-control" placeholder="Imena djece"/>
-                        </div>
-                    </div>
 
-                    <div class="row mb-3 align-items-center">
-                        <div class="col-lg-3 col-md-12 text-right">
-                          <span>Operacije</span>
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-lg-3 col-md-12 text-right">
+                              <span>Operacije</span>
+                            </div>
+                            <div class="col-lg-9 col-md-12">
+                              <input type="text" name="operacije" class="form-control" placeholder="Operacije"/>
+                            </div>
                         </div>
-                        <div class="col-lg-9 col-md-12">
-                          <input type="text" name="operacije" class="form-control" placeholder="Operacije"/>
+
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-lg-3 col-md-12 text-right">
+                              <span>Terapija</span>
+                            </div>
+                            <div class="col-lg-9 col-md-12">
+                              <input type="text" name="terapija" class="form-control" placeholder="Terapija"/>
+                            </div>
                         </div>
                   </div>
-
-                  <div class="row mb-3 align-items-center">
-                      <div class="col-lg-3 col-md-12 text-right">
-                        <span>Terapija</span>
-                      </div>
-                      <div class="col-lg-9 col-md-12">
-                        <input type="text" name="terapija" class="form-control" placeholder="Terapija"/>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </form>  
-     </div>
-  </div>
- <!-- editor -->
+               </div>
+            </form>  
+         </div>
+      </div>
+     <!-- editor -->
             <div class="row">
               <div class="col-12">
                 <div class="card" style="box-shadow: 2px 2px 3px #999;">
@@ -602,100 +507,60 @@
                 </div>
               </div>
             </div>
-
-            <div class="ms-auto text-end">
+          <div class="ms-auto text-end">
               <button type="submit" class="btn btn-primary" style="margin: 0 10px 40px 0; width: 120px;">Submit</button>
-            </div>
+          </div>
+
+          <%- include(url + '/layout/footer.ejs') %>
 
     
-
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../dist/js/custom.min.js"></script>
-    <!-- This Page JS -->
-    <script src="../assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-    <script src="../dist/js/pages/mask/mask.init.js"></script>
-    <script src="../assets/libs/select2/dist/js/select2.full.min.js"></script>
-    <script src="../assets/libs/select2/dist/js/select2.min.js"></script>
-    <script src="../assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
-    <script src="../assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
-    <script src="../assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
-    <script src="../assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
-    <script src="../assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="../assets/libs/quill/dist/quill.min.js"></script>
-    <script src="../js/date-time.js"></script>
-
     <script>
-      //***********************************//
-      // For select 2
-      //***********************************//
-      $(".select2").select2();
+              //***********************************//
+              // For select 2
+              //***********************************//
+              $(".select2").select2();
 
-      /*colorpicker*/
-      $(".demo").each(function () {
-        //
-        // Dear reader, it's actually very easy to initialize MiniColors. For example:
-        //
-        //  $(selector).minicolors();
-        //
-        // The way I've done it below is just for the demo, so don't get confused
-        // by it. Also, data- attributes aren't supported at this time...they're
-        // only used for this demo.
-        //
-        $(this).minicolors({
-          control: $(this).attr("data-control") || "hue",
-          position: $(this).attr("data-position") || "bottom left",
+              /*colorpicker*/
+              $(".demo").each(function () {
+                //
+                // Dear reader, it's actually very easy to initialize MiniColors. For example:
+                //
+                //  $(selector).minicolors();
+                //
+                // The way I've done it below is just for the demo, so don't get confused
+                // by it. Also, data- attributes aren't supported at this time...they're
+                // only used for this demo.
+                //
+                $(this).minicolors({
+                  control: $(this).attr("data-control") || "hue",
+                  position: $(this).attr("data-position") || "bottom left",
 
-          change: function (value, opacity) {
-            if (!value) return;
-            if (opacity) value += ", " + opacity;
-            if (typeof console === "object") {
-              console.log(value);
-            }
-          },
-          theme: "bootstrap",
-        });
-      });
-      /*datwpicker*/
-      jQuery(".mydatepicker").datepicker();
-      jQuery("#datepicker-autoclose").datepicker({
-        autoclose: true,
-        todayHighlight: true,
-      });
-      //var quill = new Quill("#editor", {
-       // theme: "snow",
-      //});
+                  change: function (value, opacity) {
+                    if (!value) return;
+                    if (opacity) value += ", " + opacity;
+                    if (typeof console === "object") {
+                      console.log(value);
+                    }
+                  },
+                  theme: "bootstrap",
+                });
+              });
+              /*datwpicker*/
+              jQuery(".mydatepicker").datepicker();
+              jQuery("#datepicker-autoclose").datepicker({
+                autoclose: true,
+                todayHighlight: true,
+              });
+              
+              $(document).ready(function () {
+              // Inicijalizacija Datepicker-a
+              $('#date-mask').datepicker({
+                format: 'dd/mm/yyyy', 
+                autoclose: true,
+                todayHighlight: true
+              });
+            });
 
-      $(document).ready(function () {
-      // Inicijalizacija Datepicker-a
-      $('#date-mask').datepicker({
-        format: 'dd/mm/yyyy', 
-        autoclose: true,
-        todayHighlight: true
-      });
-
-      
-});
-
-
-   
     </script>
-    
-</script>
-
-  </script>
-      
   </body>
 </html>

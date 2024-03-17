@@ -1,7 +1,5 @@
-<% url = "http://localhost:3000" %>
 <%- include('../layout/header.ejs') %>
-
-  <body>
+<body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -32,13 +30,13 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
               <!-- Logo icon -->
               <b class="logo-icon ps-2">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                 <!-- Dark Logo icon -->
                 <img
-                  src="../../assets/images/logo-icon.png"
+                  src="<%= url %>/assets/images/logo-icon.png"
                   alt="homepage"
                   class="light-logo"
                   width="25"
@@ -49,7 +47,7 @@
               <span class="logo-text ms-2">
                 <!-- dark Logo text -->
                 <img
-                  src="../../assets/images/logo-text.png"
+                  src="<%= url %>/assets/images/logo-text.png"
                   alt="homepage"
                   class="light-logo"
                 />
@@ -344,10 +342,10 @@
       <!-- ============================================================== -->
       <aside class="left-sidebar" data-sidebarbg="skin5">
         <!-- Sidebar scroll-->
-        <div class="scroll-sidebar">
+          <div class="scroll-sidebar">
           <!-- Sidebar navigation-->
-          <nav class="sidebar-nav">
-            <ul id="sidebarnav" class="pt-4">
+            <nav class="sidebar-nav">
+             <ul id="sidebarnav" class="pt-4">
               <li class="sidebar-item">
                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin" aria-expanded="false">
                   <i class="mdi mdi-view-dashboard"></i>
@@ -359,10 +357,6 @@
         </div>
         <!-- End Sidebar scroll-->
       </aside>
-      <!-- ============================================================== -->
-      <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-      <!-- ============================================================== -->
-
 
       <!-- ============================================================== -->
       <!-- Page wrapper  -->
@@ -439,44 +433,6 @@
       <!-- ============================================================== -->
     </div>
 
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-
-
-
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../../assets/libs/jquery/dist/jquery.min.js" ></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="../../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../../dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
-    <!-- Charts js Files -->
-    
-    <script src="../../assets/libs/flot/excanvas.js"></script>
-    
-    <script src="../../assets/libs/flot/jquery.flot.js"></script>
-    
-    <script src="../../assets/libs/flot/jquery.flot.pie.js"></script>
-    
-    <script src="../../assets/libs/flot/jquery.flot.time.js"></script>
-    
-    <script  src="../../assets/libs/flot/jquery.flot.stack.js"></script>
-   
-    <script src="../../assets/libs/flot/jquery.flot.crosshair.js"></script>
-    
-    <script src="../../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    
-    <script src="../../public/dist/js/pages/chart/chart-page-init.js"></script>
+  <%- include('../layout/footer.ejs') %>
   </body>
 </html>
