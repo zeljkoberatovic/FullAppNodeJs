@@ -1,28 +1,5 @@
-<% url = "http://localhost:3000" %>
 <%- include('../layout/header.ejs') %>
-<% 
-    function test() { return "TEST"; };
-    function dateTime(date = false, format = false) {
-      // Promjenljiva koja oznacava datum koji treba vratiti
-      let new_date;
-      // - Jezik, inicijalna vrijednost srpski-latinica-CG
-      let lang = "sr-Latn-ME";
-      if(date) { date = new Date(date); }
-      else { date = new Date(); }
-  
-      // - Format za MySQL bazu podataka
-      if(format == "db") {
-          format = { year: 'numeric', month: '2-digit', day: '2-digit', 
-                     hour: '2-digit', minute: '2-digit', second: '2-digit' };
-          lang = "sv-SE";
-          new_date = date.toLocaleDateString(lang, format);
-          return new_date; 
-     
-      } else { format = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' }; }
-      
-      return date.toLocaleDateString(lang, format);
-  
-    } %> 
+<%- include('../layout/utils.ejs') %>
 
 <body>
     <!-- ============================================================== -->
@@ -511,9 +488,7 @@
     <!-- End Wrapper -->
     <!-- ============================================================== -->
 
-
-    
-    <%- include('../layout/footer.ejs') %>
+<%- include('../layout/footer.ejs') %>
   
   </body>
 </html>
