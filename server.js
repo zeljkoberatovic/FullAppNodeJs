@@ -35,7 +35,7 @@ app.use(session({
     cookie: {
         maxAge: parseInt(process.env.SESS_LIFETIME), // vrednost mora biti broj
         sameSite: true,
-        secure: process.env.IN_PROD // Ova vrednost mora da bude boolean
+        secure: IN_PROD // Ova vrednost mora da bude boolean
     }
 }));
 
@@ -43,6 +43,6 @@ app.set("view engine", "ejs");
 app.use('/', routes);
 
 
-app.listen(3000, function() {
-    console.log('Listening on Port 3000');
+app.listen(PORT, function() {
+    console.log('Listening on Port ' + PORT);
 });
