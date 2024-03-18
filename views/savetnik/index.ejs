@@ -1,7 +1,27 @@
 <%- include('../layout/header.ejs') %>
-<%- include('../layout/utils.ejs') %>
-
-  <body>
+<% 
+    function dateTime(date = false, format = false) {
+      // Promjenljiva koja oznacava datum koji treba vratiti
+      let new_date;
+      // - Jezik, inicijalna vrijednost srpski-latinica-CG
+      let lang = "sr-Latn-ME";
+      if(date) { date = new Date(date); }
+      else { date = new Date(); }
+  
+      // - Format za MySQL bazu podataka
+      if(format == "db") {
+          format = { year: 'numeric', month: '2-digit', day: '2-digit', 
+                     hour: '2-digit', minute: '2-digit', second: '2-digit' };
+          lang = "sv-SE";
+          new_date = date.toLocaleDateString(lang, format);
+          return new_date; 
+     
+      } else { format = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' }; }
+      
+      return date.toLocaleDateString(lang, format);
+  
+} %> 
+<body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -32,7 +52,7 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
               <!-- Logo icon -->
               <b class="logo-icon ps-2">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->

@@ -1,9 +1,8 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const routes = require('./routes');
 const session = require("express-session");
-
-
 
 const HALF_DAY = 1000 * 60 * 60 * 12; //= 12h
 
@@ -16,33 +15,29 @@ const {
 } = process.env;
 const IN_PROD = NODE_ENV == "Production";
 
+console.log("PORT:", PORT);
+console.log("NODE_ENV:", NODE_ENV);
+console.log("SESS_NAME:", SESS_NAME);
+console.log("SESS_SECRET:", SESS_SECRET);
+console.log("SESS_LIFETIME:", SESS_LIFETIME);
+console.log("IN_PROD:", IN_PROD);
+
 app.use(express.urlencoded({ extended: false})); //mozemo da citamo iz samog bodija podatke sto nam stignu iz forme
 app.use(express.json());
 app.use(express.static( __dirname + "/public"));
 
 
-  
-
-
 app.use(session({
-    name: SESS_NAME,
+    name: process.env.SESS_NAME,
     resave: false,
     saveUninitialized: false,
-    secret: SESS_SECRET,
+    secret: process.env.SESS_SECRET,
     cookie: {
-        maxAge: SESS_LIFETIME,
+        maxAge: parseInt(process.env.SESS_LIFETIME), // vrednost mora biti broj
         sameSite: true,
-        secure: IN_PROD
+        secure: process.env.IN_PROD // Ova vrednost mora da bude boolean
     }
 }));
-
-// Postavljanje middleware-a za pretvaranje POST zahtjeva u DELETE zahtjev
-app.use((req, res, next) => {
-    if (req.method === 'POST' && req.path.startsWith('/delete/user')) {
-      req.method = 'DELETE'; // Pretvaranje POST metode u DELETE metodu
-    }
-    next();
-  });
 
 app.set("view engine", "ejs");
 app.use('/', routes);

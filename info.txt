@@ -6,3 +6,13 @@ package.json{
 }
 npm start - za pokretanje servera koristimo,
 http://localhost:3000/
+
+    require('dotenv').config();: Ovo učitava dotenv paket kako biste mogli koristiti .env datoteku za postavljanje varijabli okruženja.
+
+    const express = require("express");: Ovo učitava express paket kako biste mogli kreirati Express.js aplikaciju.
+
+    const app = express();: Ovo stvara novu instancu Express.js aplikacije koju ćete koristiti za definisanje ruta, middleware-a itd.
+
+    const routes = require('./routes');: Ovo učitava fajl koji sadrži definicije ruta. Pretpostavljamo da ste kreirali ovaj fajl da biste organizovali vaše rute na jednom mestu.
+
+    const session = require("express-session");: Ovo učitava express-session paket koji ćete koristiti za upravljanje sesijama u vašoj aplikaciji.
