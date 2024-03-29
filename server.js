@@ -15,12 +15,12 @@ const {
 } = process.env;
 const IN_PROD = NODE_ENV == "Production";
 
-console.log("PORT:", PORT);
-console.log("NODE_ENV:", NODE_ENV);
-console.log("SESS_NAME:", SESS_NAME);
-console.log("SESS_SECRET:", SESS_SECRET);
-console.log("SESS_LIFETIME:", SESS_LIFETIME);
-console.log("IN_PROD:", IN_PROD);
+//console.log("PORT:", PORT);
+//console.log("NODE_ENV:", NODE_ENV);
+//console.log("SESS_NAME:", SESS_NAME);
+//console.log("SESS_SECRET:", SESS_SECRET);
+//console.log("SESS_LIFETIME:", SESS_LIFETIME);
+//console.log("IN_PROD:", IN_PROD);
 
 app.use(express.urlencoded({ extended: false})); //mozemo da citamo iz samog bodija podatke sto nam stignu iz forme
 app.use(express.json());
@@ -46,3 +46,4 @@ app.use('/', routes);
 app.listen(PORT, function() {
     console.log('Listening on Port ' + PORT);
 });
+

@@ -382,7 +382,7 @@
                           <th>Stranka</th>
                           <th>Datum/Vrijeme</th>
                           <th>Status</th>
-                          <th>Vise</th>
+                          <th>Operater</th>
                         </tr>
                       </thead>
                     <tbody><% for(let i = 0; i < termini.length; i++) { %>
@@ -396,7 +396,7 @@
                                     <button class="btn btn-success">Zavrsen</button>
                                 <% } %>
                             </td>
-                            <td><%= termini[i].vrednost_ugovora %></td>
+                            <td><%= termini[i].operater %></td>
                       <% } %>
                     </tbody>
                     </table>

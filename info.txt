@@ -16,3 +16,6 @@ http://localhost:3000/
     const routes = require('./routes');: Ovo učitava fajl koji sadrži definicije ruta. Pretpostavljamo da ste kreirali ovaj fajl da biste organizovali vaše rute na jednom mestu.
 
     const session = require("express-session");: Ovo učitava express-session paket koji ćete koristiti za upravljanje sesijama u vašoj aplikaciji.
+
+
+    console.log(__dirname);
