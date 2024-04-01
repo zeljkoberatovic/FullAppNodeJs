@@ -6,7 +6,7 @@ const saveController = (req, res) => {
     let last_name = req.body.last_name;
     let password = req.body.password;
     let role = req.body.role;
-    // console.log(first_name, last_name, password, role);
+    
 db.query('INSERT INTO users (first_name, last_name, password, role) VALUES (?, ?, ?, ?)',
         [first_name, last_name, password, role],
         (err, results) => {

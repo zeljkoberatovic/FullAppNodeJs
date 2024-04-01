@@ -4,6 +4,7 @@ const db = require('../config/db_connection');
 const loginController = (req, res) => {
   let nameIzForme = req.body.name;
   let passIzForme = req.body.password;
+  
 // Izvršavanje SQL upita za pretragu korisnika
   db.query('SELECT * FROM users WHERE first_name = ? AND password = ?', [nameIzForme, passIzForme], (err, results) => {
       if (err) {
